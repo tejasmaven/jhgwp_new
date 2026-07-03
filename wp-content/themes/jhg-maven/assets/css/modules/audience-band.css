@@ -1,0 +1,81 @@
+/* Module: Audience Band */
+
+.jhg-audience-band {
+  overflow: visible;
+  max-width: 100%;
+}
+
+.jhg-audience-band-panel {
+  position: relative;
+  width: 100%;
+  max-width: 81.25rem;
+  height: 14rem;
+  margin-inline: auto;
+  padding: 0.625rem;
+  box-sizing: border-box;
+  color: var(--jhg-white);
+  overflow: visible;
+}
+
+.jhg-audience-band-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--jhg-magenta) url("../../images/section-bg.jpg") center /
+    cover no-repeat;
+  border-top-right-radius: 3.125rem;
+  border-bottom-left-radius: 3.125rem;
+  z-index: 0;
+}
+
+.jhg-audience-band-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 57.5rem;
+  margin-inline: auto;
+}
+
+.jhg-audience-band-text {
+  gap: 1.75rem;
+}
+
+.jhg-audience-band-heading {
+  margin: 0;
+  color: var(--jhg-white);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.jhg-audience-band-copy {
+  color: var(--jhg-white);
+  font-weight: 400;
+}
+
+.jhg-audience-band-line {
+  display: inline;
+}
+
+@media (max-width: 991.98px) {
+  .jhg-audience-band-panel {
+    height: auto;
+    min-height: 14rem;
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .jhg-audience-band-panel::before {
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+  }
+
+  .jhg-audience-band-panel {
+    padding: 1.5rem 1rem;
+  }
+
+  .jhg-audience-band-text {
+    gap: 1.25rem;
+  }
+}

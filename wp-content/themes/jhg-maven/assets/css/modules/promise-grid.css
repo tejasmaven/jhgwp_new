@@ -1,0 +1,98 @@
+/* Module: Promise Grid */
+.jhg-promise-grid {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.jhg-promise-grid-heading {
+  margin: 0 auto 2.25rem;
+  text-align: center;
+  color: var(--jhg-navy-deep);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.jhg-promise-grid-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 71.25rem;
+  margin-inline: auto;
+}
+
+.jhg-promise-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-height: 7rem;
+  padding: 1.25rem;
+  background: var(--jhg-white);
+  border-radius: 1.25rem;
+}
+
+.jhg-promise-card-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jhg-promise-card-icon-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.875rem;
+  background: var(--jhg-gray-300);
+  opacity: var(--jhg-icon-ring-opacity);
+}
+
+.jhg-promise-card-icon-bg {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.625rem;
+  background: var(--jhg-white);
+}
+
+.jhg-promise-card-icon img {
+  position: relative;
+  z-index: 1;
+  width: 2.25rem;
+  height: 2.25rem;
+  object-fit: contain;
+}
+
+.jhg-promise-card-text {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--jhg-stone);
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+@media (min-width: 768px) {
+  .jhg-promise-grid-list {
+    grid-template-columns: repeat(2, minmax(0, 35rem));
+    justify-content: center;
+    column-gap: 1.25rem;
+    row-gap: 1.25rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .jhg-promise-card {
+    min-height: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .jhg-promise-card-text {
+    width: 100%;
+  }
+}

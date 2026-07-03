@@ -1,0 +1,110 @@
+/* Module: Hero */
+.jhg-hero {
+  position: relative;
+  overflow-x: clip;
+  max-width: 100%;
+  min-height: 40rem;
+  display: flex;
+  align-items: center;
+  background-color: var(--jhg-navy);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--jhg-white);
+}
+
+.jhg-hero-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.jhg-hero-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.jhg-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg,
+      var(--jhg-navy-deep-15) 0%,
+      var(--jhg-navy-deep-45) 100%);
+}
+
+.jhg-hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.jhg-hero-content {
+  max-width: 40rem;
+}
+
+.jhg-hero-title {
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.jhg-hero-subtitle {
+  margin-bottom: 1.75rem;
+  color: var(--jhg-white-90);
+}
+
+.jhg-hero-btn {}
+
+.jhg-hero-image {
+  display: block;
+  min-height: 0;
+  background: none;
+}
+
+.jhg-hero-image.jhg-hero-has-video {
+  position: relative;
+  overflow: hidden;
+  min-height: 12.5rem;
+}
+
+.jhg-hero-image.jhg-hero-has-video .jhg-hero-media {
+  position: relative;
+  inset: auto;
+  min-height: inherit;
+}
+
+.jhg-hero-image.jhg-hero-has-video .jhg-hero-video {
+  min-height: 12.5rem;
+}
+
+.jhg-hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jhg-hero-has-video .jhg-hero-video {
+    display: none;
+  }
+
+  .jhg-hero-has-video.jhg-hero-has-poster {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: 768px) {
+  .jhg-hero {
+    min-height: 12.5rem;
+  }
+
+  .jhg-hero-image.jhg-hero-has-video,
+  .jhg-hero-image.jhg-hero-has-video .jhg-hero-video {
+    min-height: 12.5rem;
+  }
+}

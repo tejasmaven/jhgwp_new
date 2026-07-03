@@ -1,0 +1,241 @@
+/* Module: Stats Band */
+.jhg-stats-band {
+  position: relative;
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.jhg-stats-band-metrics {
+  background: var(--jhg-white);
+}
+
+.jhg-stats-metrics-heading {
+  margin: 0 auto 2.5rem;
+  max-width: 48rem;
+  text-align: center;
+  color: var(--jhg-navy-deep);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.jhg-stats-metrics-row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 2rem;
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.jhg-stats-metric {
+  text-align: center;
+}
+
+.jhg-stats-metric-value {
+  color: var(--jhg-red);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.jhg-stats-metric-label {
+  color: var(--jhg-muted);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  max-width: 14rem;
+  margin-inline: auto;
+}
+
+.jhg-stats-band-panel {
+  position: relative;
+  max-width: 81.25rem;
+  margin-inline: auto;
+  height: 50rem;
+  padding: 4rem 1.75rem;
+  color: var(--jhg-white);
+  overflow: visible;
+  margin-bottom: 11.5rem;
+}
+
+.jhg-stats-band-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--jhg-magenta) url("../../images/section-bg.jpg") center/cover
+    no-repeat;
+  border-top-right-radius: 3.125rem;
+  border-bottom-left-radius: 3.125rem;
+  z-index: 0;
+}
+
+.jhg-stats-band-feature-row {
+  position: relative;
+  z-index: 1;
+  --bs-gutter-x: 2.5rem;
+  --bs-gutter-y: 2.5rem;
+
+  margin-inline: auto;
+}
+
+.jhg-stats-band-media {
+  width: 100%;
+  max-width: 28.75rem;
+  aspect-ratio: 1 / 1;
+}
+
+.jhg-stats-band-frame {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.875rem;
+  border: 0.125rem solid var(--jhg-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jhg-stats-band-image {
+  width: 86.9565%;
+  aspect-ratio: 1 / 1;
+  max-width: 25rem;
+  border-radius: var(--jhg-radius-sm);
+  object-fit: cover;
+  display: block;
+}
+
+.jhg-stats-band-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.jhg-stats-band-rules {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.jhg-stats-band-rule {
+  display: block;
+  height: 0;
+}
+.jhg-stats-band-rule-long {
+  width: min(100%, 40.625rem);
+  border-top: 0.125rem solid var(--jhg-gray-ui-50);
+}
+.jhg-stats-band-rule-short {
+  width: 4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 0.125rem solid var(--jhg-gray-ui);
+}
+
+.jhg-stats-band-lines {
+  font-weight: 400;
+}
+
+.jhg-stats-band-btn {
+  min-width: 12rem;
+}
+
+.jhg-stats-band-cards {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 37.5rem;
+
+  padding-inline: clamp(1.25rem, 6vw, 5rem);
+}
+
+.jhg-stats-band-cards-row {
+  --bs-gutter-x: 1.75rem;
+  --bs-gutter-y: 1.75rem;
+
+  margin-inline: auto;
+}
+
+.jhg-stat-card {
+  height: 24rem;
+  padding: 0.875rem;
+  background: var(--jhg-white);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.jhg-stat-card-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--jhg-radius-sm);
+  object-fit: cover;
+  display: block;
+}
+
+.jhg-stat-card-body {
+  padding: 0;
+}
+
+.jhg-stat-card-title {
+  color: var(--jhg-stone);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+@media (max-width: 1199.98px) {
+  .jhg-stats-band-panel {
+    height: auto;
+    padding: 3rem 1.25rem;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+
+  .jhg-stats-band-feature-row {
+    max-width: 100%;
+    align-items: flex-start;
+    --bs-gutter-x: 1.25rem;
+    --bs-gutter-y: 1.75rem;
+  }
+
+  .jhg-stats-band-media {
+    margin-inline: auto;
+  }
+
+  .jhg-stats-band-text {
+    gap: 1.75rem;
+  }
+
+  .jhg-stats-band-cards {
+    position: relative;
+    z-index: 2;
+    padding-inline: 0;
+    margin-top: 2.5rem;
+    top: 0;
+    left: auto;
+    right: auto;
+  }
+
+  .jhg-stats-band-cards-row {
+    margin-inline: 0;
+  }
+
+  .jhg-stat-card {
+    height: auto;
+  }
+
+  .jhg-stat-card-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 330 / 290;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .jhg-stats-band-panel {
+    padding: 2.5rem 1rem;
+  }
+
+  .jhg-stats-band-btn {
+    width: 100%;
+    max-width: 12rem;
+  }
+}

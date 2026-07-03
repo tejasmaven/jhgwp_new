@@ -1,0 +1,95 @@
+/* Module: Logo Strip */
+.jhg-logo-strip {
+  overflow-x: clip;
+  max-width: 100%;
+}
+.jhg-logo-strip-marquee {
+  width: 100%;
+  overflow: hidden;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+}
+.jhg-logo-strip-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: jhg-logo-marquee 18s linear infinite;
+}
+.jhg-logo-strip-marquee:hover .jhg-logo-strip-track {
+  animation-play-state: paused;
+}
+
+.jhg-logo-strip-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0.625rem;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(1.25rem, 4vw, 5rem);
+  height: 3rem;
+}
+
+.jhg-logo-strip-divider {
+  margin-bottom: var(--jhg-section-gap);
+}
+.jhg-logo-strip-item {
+  flex: 0 1 auto;
+}
+.jhg-logo-strip-item img {
+  display: block;
+  max-width: 10rem;
+  max-height: 2.0625rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: opacity 0.2s ease;
+}
+
+.jhg-logo-strip-item img:hover {
+  opacity: 1;
+}
+
+@keyframes jhg-logo-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 992px) {
+  .jhg-logo-strip-marquee {
+    height: 6.5rem;
+  }
+  .jhg-logo-strip-track {
+    animation-duration: 16s;
+  }
+  .jhg-logo-strip-item img {
+    max-height: 1.875rem;
+    max-width: 9.375rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .jhg-logo-strip-marquee {
+    height: 6rem;
+  }
+  .jhg-logo-strip-track {
+    animation-duration: 14s;
+  }
+  .jhg-logo-strip-item img {
+    max-height: 1.625rem;
+    max-width: 8.125rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jhg-logo-strip-track {
+    animation: none;
+    transform: none;
+  }
+}

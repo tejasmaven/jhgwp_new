@@ -1,0 +1,97 @@
+/* Module: Resource Find Grid */
+.jhg-resource-find-grid {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.jhg-resource-find-grid-heading {
+  margin: 0 0 2.1875rem;
+  color: var(--jhg-navy-deep);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.jhg-resource-find-grid-cells {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  max-width: 75rem;
+  margin-inline: auto;
+}
+
+.jhg-resource-find-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-height: 7.5rem;
+  padding: 1.25rem;
+  background: var(--jhg-white);
+  border-radius: 1.25rem;
+}
+
+.jhg-resource-find-card-icon {
+  position: relative;
+  width: 5.5625rem;
+  height: 5.5625rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jhg-resource-find-card-icon-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  border: 1px solid var(--jhg-neutral-500-35);
+  opacity: 0.5;
+}
+
+.jhg-resource-find-card-icon-bg {
+  position: absolute;
+  width: 4.5625rem;
+  height: 4.5625rem;
+  border-radius: 0.625rem;
+  background: var(--jhg-white);
+  box-shadow: var(--jhg-shadow-icon);
+}
+
+.jhg-resource-find-card-icon img {
+  position: relative;
+  z-index: 1;
+  width: 2.75rem;
+  height: 2.75rem;
+  object-fit: contain;
+}
+
+.jhg-resource-find-card-label {
+  flex: 1 1 auto;
+  color: var(--jhg-stone);
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+@media (min-width: 992px) {
+  .jhg-resource-find-grid-cells {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575.98px) {
+  .jhg-resource-find-card {
+    min-height: 0;
+    padding: 1rem;
+  }
+
+  .jhg-resource-find-card-icon {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .jhg-resource-find-card-icon-bg {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+}

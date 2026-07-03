@@ -1,0 +1,136 @@
+/* Module: Team Grid */
+.jhg-team-grid {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.jhg-team-grid-list {
+  display: grid;
+  grid-template-columns: minmax(0, 24rem);
+  justify-content: center;
+  gap: 1.75rem;
+
+  margin-inline: auto;
+}
+
+.jhg-team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.875rem;
+  width: 100%;
+  min-height: 29.375rem;
+  padding: 1.25rem;
+  background: var(--jhg-white);
+  border-radius: 1.25rem;
+  box-shadow: var(--jhg-shadow-md);
+}
+
+.jhg-team-card-photo {
+  width: 100%;
+  height: 18rem;
+  overflow: hidden;
+  border-radius: 0.625rem;
+  background: var(--jhg-neutral-100);
+  flex-shrink: 0;
+}
+
+.jhg-team-card-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.jhg-team-card-name {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--jhg-stone);
+  font-weight: 700;
+}
+
+.jhg-team-card-role {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--jhg-stone);
+  opacity: 0.6;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.jhg-team-card-divider {
+  display: block;
+  width: 12rem;
+  height: 0;
+  border-top: 1px solid
+    color-mix(in srgb, var(--jhg-neutral-400) 50%, transparent);
+}
+
+.jhg-team-card-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.jhg-team-card-social-divider {
+  display: block;
+  flex-shrink: 0;
+  width: 0;
+  height: 2.5rem;
+  border-left: 1px solid
+    color-mix(in srgb, var(--jhg-neutral-400) 65%, transparent);
+}
+
+.jhg-team-card-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--jhg-navy-deep);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--jhg-navy-deep);
+  text-decoration: none;
+  transition:
+    background-color var(--jhg-transition-base),
+    border-color var(--jhg-transition-base),
+    color var(--jhg-transition-base);
+}
+
+.jhg-team-card-social-link:hover,
+.jhg-team-card-social-link:focus-visible {
+  background: var(--jhg-navy-deep-06);
+  border-color: var(--jhg-navy);
+  color: var(--jhg-navy);
+  outline: none;
+}
+
+.jhg-team-card-social-link i {
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .jhg-team-grid-list {
+    grid-template-columns: repeat(2, minmax(0, 24rem));
+  }
+}
+
+@media (min-width: 992px) {
+  .jhg-team-grid-list {
+    grid-template-columns: repeat(3, minmax(0, 24rem));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .jhg-team-card {
+    min-height: 0;
+  }
+}

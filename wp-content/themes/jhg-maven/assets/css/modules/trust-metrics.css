@@ -1,0 +1,118 @@
+/* Module: Trust Metrics */
+
+.jhg-trust-metrics {
+  overflow-x: clip;
+  max-width: 100%;
+  background: var(--jhg-light);
+}
+
+.jhg-trust-metrics-header {
+  margin-bottom: 2.25rem;
+}
+
+.jhg-trust-metrics-heading {
+  margin: 0 auto;
+  color: var(--jhg-navy-deep);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.jhg-trust-metrics-body {
+  width: 100%;
+}
+
+.jhg-trust-metrics-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2.25rem;
+  width: 100%;
+  min-height: 11rem;
+  box-sizing: border-box;
+}
+
+.jhg-trust-metrics-value {
+  width: 100%;
+  color: var(--jhg-red);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.jhg-trust-metrics-value-count {
+  font-variant-numeric: tabular-nums;
+}
+
+.jhg-trust-metrics-label {
+  width: 100%;
+  color: var(--jhg-stone);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+@media (min-width: 992px) {
+  .jhg-trust-metrics-body
+    .jhg-trust-col:not(:last-child)
+    .jhg-trust-metrics-stat {
+    border-right: 0.0625rem solid var(--jhg-neutral-400);
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .jhg-trust-metrics-header {
+    margin-bottom: 2rem;
+    padding-inline: 1rem;
+  }
+
+  .jhg-trust-metrics-heading {
+    max-width: 32rem;
+  }
+
+  .jhg-trust-metrics-body .row {
+    --bs-gutter-y: 0;
+  }
+
+  .jhg-trust-metrics-body .jhg-trust-col .jhg-trust-metrics-stat {
+    border-right: none;
+    min-height: 10rem;
+    padding: 2rem 1.25rem;
+    max-width: 14rem;
+    margin-inline: auto;
+  }
+  .jhg-trust-metrics-body
+    .jhg-trust-col:nth-child(odd)
+    .jhg-trust-metrics-stat {
+    border-right: 0.0625rem solid var(--jhg-neutral-400);
+  }
+  .jhg-trust-metrics-body
+    .jhg-trust-col:nth-child(-n + 2)
+    .jhg-trust-metrics-stat {
+    border-bottom: 0.0625rem solid var(--jhg-neutral-400);
+  }
+}
+@media (max-width: 575.98px) {
+  .jhg-trust-metrics-header {
+    margin-bottom: 1.75rem;
+    padding-inline: 0.5rem;
+  }
+
+  .jhg-trust-metrics-heading {
+    max-width: 100%;
+  }
+
+  .jhg-trust-metrics-body .jhg-trust-col .jhg-trust-metrics-stat {
+    border-right: none;
+    min-height: 0;
+    gap: 1.5rem;
+    padding: 1.75rem 1rem;
+    max-width: 18rem;
+    margin-inline: auto;
+  }
+
+  .jhg-trust-metrics-body
+    .jhg-trust-col:not(:last-child)
+    .jhg-trust-metrics-stat {
+    border-bottom: 0.0625rem solid var(--jhg-neutral-400);
+  }
+}

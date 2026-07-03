@@ -1,0 +1,238 @@
+/* Module: Testimonials */
+.jhg-testimonials {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.jhg-testimonials > .container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.jhg-testimonials-heading {
+  margin: 0 auto;
+  color: var(--jhg-navy-deep);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.jhg-testimonials-intro {
+  margin: 0 auto;
+  max-width: 63.125rem;
+  color: var(--jhg-stone);
+  font-weight: 400;
+  text-align: center;
+}
+.jhg-testimonials-slider {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 2.25rem;
+  max-width: 81.25rem;
+  margin-inline: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.jhg-testimonials-track {
+  flex: 1 1 100%;
+  min-width: 0;
+  order: 1;
+}
+
+.jhg-testimonials-swiper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.jhg-testimonials-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.jhg-testimonials-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.jhg-review-card {
+  width: 100%;
+  min-height: 16rem;
+  padding: 1.25rem 0.875rem 0.875rem 1.25rem;
+  background: var(--jhg-white);
+  border-radius: 1.25rem;
+  box-shadow: var(--jhg-shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.jhg-review-head {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-height: 3rem;
+}
+
+.jhg-review-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.jhg-review-avatar-placeholder {
+  display: block;
+  background: var(--jhg-gray-200);
+}
+
+.jhg-review-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  line-height: 1;
+}
+
+.jhg-review-stars .fa-star.is-filled {
+  color: var(--jhg-stone);
+}
+
+.jhg-review-stars .fa-star.is-empty {
+  color: var(--jhg-gray-200);
+}
+
+.jhg-review-quote {
+  margin: 0;
+  flex: 1 1 auto;
+  font-weight: 400;
+  color: var(--jhg-stone);
+  overflow-wrap: anywhere;
+}
+
+.jhg-review-name {
+  margin: 0;
+  color: var(--jhg-neutral-400);
+}
+
+.jhg-testimonials-nav {
+  flex-shrink: 0;
+  order: 2;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--jhg-blue);
+  color: var(--jhg-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity var(--jhg-transition-base);
+}
+
+.jhg-testimonials-nav .fa-solid {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.jhg-testimonials-nav:hover {
+  opacity: 0.88;
+  color: var(--jhg-white);
+}
+
+.jhg-testimonials-nav:disabled,
+.jhg-testimonials-nav.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.jhg-testimonials-pagination {
+  display: flex;
+  order: 3;
+  flex: 1 1 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  position: static !important;
+  inset: auto !important;
+  width: auto !important;
+}
+
+.jhg-testimonials-pagination .swiper-pagination-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--jhg-gray-300);
+  opacity: 1;
+  margin: 0;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.jhg-testimonials-pagination .swiper-pagination-bullet-active {
+  background: var(--jhg-red);
+  transform: scale(1.15);
+}
+
+@media (min-width: 1200px) {
+  .jhg-testimonials-slider {
+    flex-wrap: nowrap;
+    gap: 2.25rem;
+  }
+
+  .jhg-testimonials-track {
+    flex: 1 1 auto;
+    order: 0;
+    min-width: 0;
+  }
+
+  .jhg-testimonials-prev {
+    order: -1;
+  }
+
+  .jhg-testimonials-next {
+    order: 1;
+  }
+
+  .jhg-testimonials-pagination {
+    display: none;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .jhg-testimonials > .container {
+    gap: 2.5rem;
+  }
+
+  .jhg-testimonials-prev,
+  .jhg-testimonials-next {
+    order: 2;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .jhg-review-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .jhg-testimonials-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .jhg-testimonials-intro {
+    margin-bottom: 1.5rem;
+  }
+
+  .jhg-review-card {
+    padding: 1.25rem 1rem 1rem 1.25rem;
+  }
+}

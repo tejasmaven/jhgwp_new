@@ -1,0 +1,142 @@
+/* Module: Checklist Cards */
+.jhg-checklist-cards {
+  overflow-x: clip;
+  max-width: 100%;
+  background: var(--jhg-neutral-100);
+}
+
+.jhg-checklist-cards-row {
+  --bs-gutter-x: 1.875rem;
+  max-width: 61.25rem;
+  margin-inline: auto;
+}
+
+.jhg-checklist-cards-card {
+  width: 100%;
+  margin-inline: auto;
+  min-height: 24rem;
+  padding: 1.75rem;
+  background: var(--jhg-white);
+  border-radius: 1.25rem;
+  box-sizing: border-box;
+}
+
+.jhg-checklist-cards-card:not(.jhg-checklist-cards-card-has-cta)
+  .jhg-checklist-cards-inner {
+  width: fit-content;
+  max-width: 100%;
+}
+.jhg-checklist-cards-card-has-cta {
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.jhg-checklist-cards-inner {
+  display: flex;
+  gap: 1.875rem;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.jhg-checklist-cards-heading {
+  margin: 0;
+  color: var(--jhg-navy-deep);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.jhg-checklist-cards .jhg-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.jhg-checklist-cards .jhg-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.875rem;
+}
+
+.jhg-checklist-cards .jhg-checklist li:last-child {
+  margin-bottom: 0;
+}
+
+.jhg-checklist-cards .jhg-checklist-icon {
+  flex-shrink: 0;
+  width: 1.375rem;
+  height: 1.375rem;
+  margin-top: 0.2rem;
+  border-radius: 50%;
+  background: var(--jhg-navy-deep);
+  color: var(--jhg-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6875rem;
+  line-height: 1;
+}
+
+.jhg-checklist-cards .jhg-checklist-icon .fa-check {
+  display: block;
+}
+
+.jhg-checklist-cards .jhg-checklist-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--jhg-navy-deep);
+  font-weight: 400;
+}
+
+.jhg-checklist-cards-card-has-cta .jhg-checklist-label {
+  max-width: 16rem;
+  line-height: 1.5rem;
+}
+.jhg-checklist-cards-btn.jhg-btn.jhg-btn-outline-red {
+  min-width: 0;
+  width: auto;
+  min-height: 2.5rem;
+  height: 2.5rem;
+  padding: 0 1.5rem;
+  border: 0.0625rem solid var(--jhg-red);
+  border-radius: 0.625rem;
+  background: transparent;
+  line-height: 1.25rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.jhg-checklist-cards-btn.jhg-btn.jhg-btn-outline-red:hover {
+  background: var(--jhg-red);
+  border-color: var(--jhg-red);
+  color: var(--jhg-white);
+}
+
+@media (min-width: 992px) {
+  .jhg-checklist-cards-card {
+    height: 24rem;
+    margin-inline: 0;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .jhg-checklist-cards-card {
+    height: auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .jhg-checklist-cards-card {
+    padding: 1.25rem;
+    border-radius: 1rem;
+  }
+
+  .jhg-checklist-cards-card-has-cta .jhg-checklist-label {
+    max-width: none;
+  }
+}

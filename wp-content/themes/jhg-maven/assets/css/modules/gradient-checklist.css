@@ -1,0 +1,163 @@
+/* Module: Gradient Checklist */
+.jhg-gradient-checklist {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.jhg-gradient-checklist-panel {
+  position: relative;
+  width: 100%;
+  max-width: 81.25rem;
+  min-height: 32.5rem;
+  margin-inline: auto;
+  padding: 0.625rem;
+  color: var(--jhg-white);
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.jhg-gradient-checklist-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--jhg-magenta) url("../../images/section-bg.jpg") center/cover
+    no-repeat;
+  border-top-right-radius: 3.125rem;
+  border-bottom-left-radius: 3.125rem;
+  z-index: 0;
+}
+
+.jhg-gradient-checklist-frame {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 30.625rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.jhg-gradient-checklist-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 76.25rem;
+  margin-inline: auto;
+}
+
+.jhg-gradient-checklist-heading {
+  margin: 0;
+  width: 100%;
+  color: var(--jhg-white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+.jhg-gradient-checklist-columns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.jhg-gradient-checklist-column {
+  flex: 1 1 22rem;
+  min-width: 0;
+  max-width: 34rem;
+}
+
+.jhg-gradient-checklist-columns-single {
+  justify-content: center;
+}
+
+.jhg-gradient-checklist-columns-single .jhg-gradient-checklist-column {
+  flex: 0 1 42rem;
+  max-width: 42rem;
+}
+
+.jhg-gradient-checklist-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.jhg-gradient-checklist-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  margin: 0 0 1.75rem;
+  font-weight: 400;
+  color: var(--jhg-white);
+  text-align: left;
+}
+
+.jhg-gradient-checklist-list li:last-child {
+  margin-bottom: 0;
+}
+.jhg-gradient-checklist-icon {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.125rem;
+  border-radius: 50%;
+  background: var(--jhg-white);
+  color: var(--jhg-red);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.jhg-gradient-checklist-icon .fa-check {
+  display: block;
+  font-weight: 700;
+}
+
+.jhg-gradient-checklist-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+@media (max-width: 991.98px) {
+  .jhg-gradient-checklist-panel {
+    min-height: 0;
+  }
+
+  .jhg-gradient-checklist-frame {
+    min-height: 0;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .jhg-gradient-checklist-columns {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .jhg-gradient-checklist-column {
+    max-width: none;
+  }
+
+  .jhg-gradient-checklist-column + .jhg-gradient-checklist-column {
+    margin-top: 1.75rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .jhg-gradient-checklist-panel::before {
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+  }
+
+  .jhg-gradient-checklist-frame {
+    padding: 2rem 1.25rem;
+  }
+
+}

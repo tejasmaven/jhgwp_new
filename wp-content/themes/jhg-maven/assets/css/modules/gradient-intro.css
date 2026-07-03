@@ -1,0 +1,129 @@
+/* Module: Gradient Intro */
+.jhg-gradient-intro {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.jhg-gradient-intro-panel {
+  position: relative;
+  width: 100%;
+  max-width: 81.25rem;
+  min-height: 24rem;
+  margin-inline: auto;
+  padding: 4rem 1.75rem;
+  color: var(--jhg-white);
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jhg-gradient-intro-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--jhg-magenta) url("../../images/section-bg.jpg") center/cover
+    no-repeat;
+  border-top-right-radius: 3.125rem;
+  border-bottom-left-radius: 3.125rem;
+  z-index: 0;
+}
+
+.jhg-gradient-intro-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 71.875rem;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jhg-gradient-intro-text-frame {
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.75rem;
+}
+
+.jhg-gradient-intro-rules {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jhg-gradient-intro-rule {
+  display: block;
+  height: 0;
+  border-top: 0.125rem solid transparent;
+}
+
+.jhg-gradient-intro-rule-long {
+  width: 100%;
+  border-top-color: var(--jhg-gray-200-50);
+  opacity: 0.5;
+}
+
+.jhg-gradient-intro-rule-short {
+  width: 8rem;
+  border-top-color: var(--jhg-gray-200);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+.jhg-gradient-intro-heading {
+  margin: 0;
+  width: 100%;
+  color: var(--jhg-white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.jhg-gradient-intro-copy {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.jhg-gradient-intro-text {
+  margin: 0;
+  width: 100%;
+  color: var(--jhg-white);
+  font-family: var(--jhg-font);
+  font-weight: 400;
+}
+
+@media (max-width: 1199.98px) {
+  .jhg-gradient-intro-panel {
+    min-height: 0;
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .jhg-gradient-intro-panel::before {
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+  }
+
+  .jhg-gradient-intro-panel {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .jhg-gradient-intro-copy {
+    gap: 1.5rem;
+  }
+}

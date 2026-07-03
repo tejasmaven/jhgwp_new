@@ -1,0 +1,19 @@
+/* Module: Section Title */
+.jhg-section-title {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.jhg-section-title-heading {
+  margin: 0 auto;
+  max-width: 57.5rem;
+  text-align: center;
+  color: var(--jhg-navy-deep);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.jhg-section-title-large .jhg-section-title-heading {
+  max-width: 40rem;
+}

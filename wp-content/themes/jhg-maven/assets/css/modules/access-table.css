@@ -1,0 +1,148 @@
+/* Module: Access Table */
+.jhg-access-table {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.jhg-access-table-panel {
+  width: 100%;
+  max-width: 75rem;
+  margin-inline: auto;
+  padding: 3.125rem 2.5rem;
+  background: var(--jhg-white);
+  border-radius: 1.875rem;
+}
+
+.jhg-access-table-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 65rem;
+  margin-inline: auto;
+}
+
+.jhg-access-table-heading {
+  margin: 0;
+  color: var(--jhg-navy-deep);
+  font-weight: 700;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.jhg-access-table-intro {
+  margin: 0;
+  color: var(--jhg-stone);
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.jhg-access-table-scroll {
+  width: 100%;
+}
+
+.jhg-access-table-table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--jhg-stone);
+  --bs-table-border-color: transparent;
+  --bs-table-border-width: 0;
+  width: 100%;
+  margin-bottom: 0;
+  table-layout: fixed;
+}
+
+.jhg-access-table-col-label {
+  width: 50%;
+}
+
+.jhg-access-table-col-public,
+.jhg-access-table-col-member {
+  width: 25%;
+}
+
+.jhg-access-table-table > :not(caption) > * > * {
+  position: relative;
+  padding: 1rem 0.5rem;
+  border: 0;
+  box-shadow: none;
+  vertical-align: middle;
+}
+
+.jhg-access-table-head th {
+  padding-top: 0;
+  padding-bottom: 1rem;
+  color: var(--jhg-navy-deep);
+  font-weight: 700;
+  text-transform: capitalize;
+  vertical-align: bottom;
+}
+
+.jhg-access-table-head th::after {
+  content: "";
+  position: absolute;
+  left: 0.3125rem;
+  right: 0.3125rem;
+  bottom: 0;
+  border-bottom: 0.09375rem solid var(--jhg-stone);
+}
+
+.jhg-access-table-body.table-group-divider {
+  border-top: 0;
+}
+
+.jhg-access-table-body > tr > th {
+  color: var(--jhg-stone);
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.jhg-access-table-body > tr:not(:last-child) > th::after,
+.jhg-access-table-body > tr:not(:last-child) > td::after {
+  content: "";
+  position: absolute;
+  left: 0.3125rem;
+  right: 0.3125rem;
+  bottom: 0;
+  border-bottom: 1px solid rgba(120, 113, 108, 0.35);
+}
+
+.jhg-access-table-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 0.625rem;
+  line-height: 1;
+}
+
+.jhg-access-table-icon.is-yes {
+  background: #16a34a;
+  color: var(--jhg-white);
+}
+
+.jhg-access-table-icon.is-no {
+  background: var(--jhg-red);
+  color: var(--jhg-white);
+}
+
+@media (max-width: 991.98px) {
+  .jhg-access-table-panel {
+    padding: 2.5rem 1.5rem;
+    border-radius: 1.25rem;
+  }
+
+  .jhg-access-table-table {
+    table-layout: auto;
+    min-width: 32rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .jhg-access-table-panel {
+    padding: 2rem 1rem;
+  }
+}

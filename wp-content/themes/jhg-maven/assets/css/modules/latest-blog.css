@@ -1,0 +1,135 @@
+/* Module: Blog Links */
+.jhg-blog-links {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.jhg-blog-links-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.5rem;
+  width: 100%;
+
+  margin-inline: auto;
+  padding: 2.5rem;
+  background: var(--jhg-white);
+  border-radius: 1.875rem;
+}
+
+.jhg-blog-links-heading {
+  margin: 0;
+  color: var(--jhg-navy-deep);
+  font-weight: 700;
+  line-height: 2rem;
+}
+
+.jhg-blog-links-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.jhg-blog-links-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.jhg-blog-links-divider {
+  width: 100%;
+  height: 0;
+  margin: 0;
+  border: 0;
+  border-top: 0.35px solid var(--jhg-neutral-400);
+}
+
+.jhg-blog-link-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.jhg-blog-link-title {
+  margin: 0;
+  color: var(--jhg-stone);
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+.jhg-blog-link-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.1875rem;
+  color: var(--jhg-red);
+  text-decoration: none;
+  font-weight: 400;
+  line-height: 1.5rem;
+  transition: color var(--jhg-transition-base);
+}
+
+.jhg-blog-link-cta:hover,
+.jhg-blog-link-cta:focus-visible {
+  color: var(--jhg-red-dark);
+  outline: none;
+}
+
+.jhg-blog-link-cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 0;
+  color: inherit;
+}
+
+.jhg-blog-link-cta-icon svg {
+  width: 1.25rem;
+  height: 0.875rem;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .jhg-blog-links-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(2rem, 8vw, 6.25rem);
+    width: 100%;
+    max-width: 66.75rem;
+  }
+
+  .jhg-blog-links-divider {
+    max-width: 66.75rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .jhg-blog-links-row {
+    grid-template-columns: repeat(2, 30.25rem);
+    column-gap: 6.25rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .jhg-blog-links-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .jhg-blog-links-panel {
+    gap: 2rem;
+    padding: 1.5rem 1.25rem;
+    border-radius: 1.25rem;
+  }
+
+  .jhg-blog-links-body {
+    gap: 2rem;
+  }
+}

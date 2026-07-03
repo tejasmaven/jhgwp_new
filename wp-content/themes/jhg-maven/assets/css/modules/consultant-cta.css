@@ -1,0 +1,57 @@
+/* Module: Consultant CTA */
+.jhg-consultant-cta {
+  overflow-x: clip;
+  max-width: 100%;
+  background: var(--jhg-light);
+}
+
+.jhg-consultant-cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 50rem;
+  margin-inline: auto;
+}
+
+.jhg-consultant-cta-heading {
+  margin: 0;
+  color: var(--jhg-navy-deep);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.jhg-consultant-cta-heading-line {
+  display: inline;
+}
+
+.jhg-consultant-cta-action {
+  margin-top: 2.25rem;
+  display: flex;
+  justify-content: center;
+}
+
+.jhg-consultant-cta-btn.jhg-btn {
+  min-width: 12rem;
+  width: 12rem;
+  min-height: 2.75rem;
+  height: 2.75rem;
+  padding: 0 1.5rem;
+  border-radius: 0.625rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 575.98px) {
+  .jhg-consultant-cta-action {
+    margin-top: 1.75rem;
+    width: 100%;
+  }
+
+  .jhg-consultant-cta-btn.jhg-btn {
+    width: 100%;
+    max-width: 16rem;
+  }
+}
