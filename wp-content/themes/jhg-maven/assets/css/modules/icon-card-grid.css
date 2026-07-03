@@ -207,9 +207,9 @@ a.jhg-icon-service-card:focus-visible {
     grid-auto-rows: minmax(23rem, auto);
   }
 
-  .jhg-icon-card-grid-cells .jhg-icon-service-card {
+  /* .jhg-icon-card-grid-cells .jhg-icon-service-card {
     border-right: 1px solid var(--jhg-icon-grid-line);
-  }
+  } */
 
   .jhg-icon-card-grid-cells .jhg-icon-service-card:nth-child(2n) {
     border-right: 0;
@@ -229,9 +229,9 @@ a.jhg-icon-service-card:focus-visible {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .jhg-icon-card-grid-cells .jhg-icon-service-card:nth-child(2n) {
+  /* .jhg-icon-card-grid-cells .jhg-icon-service-card:nth-child(2n) {
     border-right: 1px solid var(--jhg-icon-grid-line);
-  }
+  } */
 
   .jhg-icon-card-grid-cells .jhg-icon-service-card:nth-child(3n) {
     border-right: 0;
@@ -263,4 +263,22 @@ a.jhg-icon-service-card:focus-visible {
     min-height: 0;
     padding: 1.75rem 1.25rem 2rem;
   }
+}
+
+
+.jhg-icon-card-grid-cells{border: none;}
+.jhg-icon-card-grid-cells .jhg-icon-service-card{box-shadow: none !important; border-bottom: none; border-left:1px solid #a3a3a3; border-top:1px solid #a3a3a3;}
+.jhg-icon-card-grid-cells .jhg-icon-service-card:nth-child(3n), .jhg-icon-card-grid-cells .jhg-icon-service-card:last-child{border-right:1px solid #a3a3a3;}
+.jhg-icon-card-grid-cells .jhg-icon-service-card:nth-last-child(-n + 3){border-left:1px solid #a3a3a3 !important; border-bottom:1px solid #a3a3a3 !important;}
+
+
+@media(max-width:991px){
+  .jhg-icon-card-grid-cells .jhg-icon-service-card:nth-child(3n), .jhg-icon-card-grid-cells .jhg-icon-service-card:last-child{border-right: none;}
+  .jhg-icon-card-grid-cells .jhg-icon-service-card:nth-last-child(-n + 2),
+  .jhg-icon-card-grid-cells .jhg-icon-service-card:nth-child(2n){border-right: 1px solid #a3a3a3 !important;}
+  .jhg-icon-card-grid-cells .jhg-icon-service-card:nth-last-child(3){border-bottom: 0 !important;}
+}
+
+@media(max-width:767px){
+  .jhg-icon-card-grid-cells .jhg-icon-service-card{border-left:1px solid #a3a3a3 !important; border-right:1px solid #a3a3a3 !important;}
 }
