@@ -140,3 +140,6 @@
     max-width: none;
   }
 }
+
+.jhg-checklist-cards-card{height: 100%;}
+.jhg-checklist-cards-btn.jhg-btn.jhg-btn-outline-red{white-space: inherit; height: auto; padding: 10px;}

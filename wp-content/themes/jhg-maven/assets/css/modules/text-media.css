@@ -401,3 +401,7 @@
     border-radius: 1.25rem;
   }
 }
+
+.jhg-text-media-panel .align-items-center {
+    align-items: flex-start !important;
+}
