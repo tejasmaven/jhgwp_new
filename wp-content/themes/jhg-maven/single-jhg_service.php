@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Single service template — built with the modular page builder.
+ * Single service template — built with the modular page builder.f
  */
 
 get_header();
