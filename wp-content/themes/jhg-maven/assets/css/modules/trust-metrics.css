@@ -31,6 +31,7 @@
   width: 100%;
   min-height: 11rem;
   box-sizing: border-box;
+  padding: 20px 10px;
 }
 
 .jhg-trust-metrics-value {
@@ -50,6 +51,7 @@
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.02em;
+  margin-top: auto;
 }
 @media (min-width: 992px) {
   .jhg-trust-metrics-body

@@ -6,7 +6,7 @@
   function initMobileNav() {
     var offcanvasEl = document.getElementById("jhg-mobile-nav");
     var openToggle = document.querySelector(
-      '.jhg-nav-toggle[data-bs-target="#jhg-mobile-nav"]'
+      '.jhg-nav-toggle[data-bs-target="#jhg-mobile-nav"]',
     );
 
     if (!offcanvasEl || !openToggle || typeof bootstrap === "undefined") {
@@ -18,7 +18,7 @@
       openToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
       openToggle.setAttribute(
         "aria-label",
-        isOpen ? "Close menu" : "Open menu"
+        isOpen ? "Close menu" : "Open menu",
       );
       document.body.classList.toggle("jhg-nav-open", isOpen);
     }
@@ -30,32 +30,33 @@
     offcanvasEl.addEventListener("hidden.bs.offcanvas", function () {
       setOpenState(false);
 
-      offcanvasEl.querySelectorAll(".jhg-nav-mobile .nav-item.is-expanded").forEach(
-        function (item) {
+      offcanvasEl
+        .querySelectorAll(".jhg-nav-mobile .nav-item.is-expanded")
+        .forEach(function (item) {
           item.classList.remove("is-expanded");
-        }
-      );
+        });
 
-      offcanvasEl.querySelectorAll(".jhg-nav-mobile .jhg-mobile-expand").forEach(
-        function (btn) {
+      offcanvasEl
+        .querySelectorAll(".jhg-nav-mobile .jhg-mobile-expand")
+        .forEach(function (btn) {
           btn.setAttribute("aria-expanded", "false");
-        }
-      );
+        });
     });
 
-    offcanvasEl.querySelectorAll(".jhg-nav-mobile .jhg-nav-dropdown-link").forEach(
-      function (link) {
+    offcanvasEl
+      .querySelectorAll(".jhg-nav-mobile .jhg-nav-dropdown-link")
+      .forEach(function (link) {
         link.addEventListener("click", function () {
           var instance = bootstrap.Offcanvas.getInstance(offcanvasEl);
           if (instance) {
             instance.hide();
           }
         });
-      }
-    );
+      });
 
-    offcanvasEl.querySelectorAll(".jhg-nav-mobile .jhg-mobile-expand").forEach(
-      function (btn) {
+    offcanvasEl
+      .querySelectorAll(".jhg-nav-mobile .jhg-mobile-expand")
+      .forEach(function (btn) {
         btn.addEventListener("click", function (event) {
           event.preventDefault();
           event.stopPropagation();
@@ -69,9 +70,7 @@
           var isOpen = item.classList.toggle("is-expanded");
           btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
         });
-      }
-    );
-
+      });
   }
 
   function alignCardDropdownPanels() {
@@ -83,10 +82,10 @@
       .querySelectorAll(".jhg-header-nav .jhg-nav-dropdown-card-parent")
       .forEach(function (item) {
         var trigger = item.querySelector(
-          ":scope > .nav-link, :scope > .jhg-nav-parent-trigger"
+          ":scope > .nav-link, :scope > .jhg-nav-parent-trigger",
         );
         var cardInner = item.querySelector(
-          ":scope > .jhg-nav-dropdown-card .jhg-nav-dropdown-card-inner"
+          ":scope > .jhg-nav-dropdown-card .jhg-nav-dropdown-card-inner",
         );
 
         if (!trigger || !cardInner) {
@@ -103,12 +102,12 @@
 
   function initDesktopNavDropdowns() {
     var items = document.querySelectorAll(
-      ".jhg-header-nav .jhg-dropdown-hover"
+      ".jhg-header-nav .jhg-dropdown-hover",
     );
 
     items.forEach(function (item) {
       var trigger = item.querySelector(
-        ":scope > .nav-link, :scope > .jhg-nav-parent-trigger"
+        ":scope > .nav-link, :scope > .jhg-nav-parent-trigger",
       );
       var closeTimer;
 
@@ -161,3 +160,46 @@
     initDesktopNavDropdowns();
   });
 })();
+
+// Counter JS============
+
+const section = document.querySelector(".jhg-trust-metrics");
+const counters = document.querySelectorAll(".jhg-trust-metrics-value");
+
+let started = false;
+
+function startCounter() {
+  if (started) return;
+
+  const rect = section.getBoundingClientRect();
+
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    started = true;
+
+    counters.forEach((counter) => {
+      const finalText = counter.textContent.trim();
+      const target = parseInt(finalText.replace(/,/g, "").replace("+", ""));
+
+      let current = 0;
+      const increment = Math.max(1, Math.ceil(target / 100));
+
+      function update() {
+        current += increment;
+
+        if (current >= target) {
+          counter.textContent = finalText;
+          return;
+        }
+
+        counter.textContent =
+          current.toLocaleString() + (finalText.includes("+") ? "+" : "");
+        requestAnimationFrame(update);
+      }
+
+      update();
+    });
+  }
+}
+
+window.addEventListener("scroll", startCounter);
+startCounter();

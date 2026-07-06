@@ -149,3 +149,7 @@
     border-radius: 0.5rem;
   }
 }
+
+.jhg-founder-showcase-row {
+  align-items: flex-start !important;
+}
