@@ -792,7 +792,7 @@ function jhg_kses_line_breaks(string $text): string
         return '';
     }
 
-    $text = wp_kses($text, [
+    $text = wp_kses_post($text, [
         'br' => [],
     ]);
 
