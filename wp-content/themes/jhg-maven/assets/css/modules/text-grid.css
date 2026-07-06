@@ -220,9 +220,32 @@
 /* .jhg-icon-card-grid-cells .jhg-icon-service-card:nth-child(3n + 1)::before{display: none;} */
 
 @media (max-width: 991px) {
-  .jhg-text-grid-wrap .jhg-text-grid-cell:nth-child(3n),
-  .jhg-text-grid-wrap .jhg-text-grid-cell:last-child {
+  .jhg-text-grid-wrap .jhg-text-grid-cell .jhg-text-grid-text::after,
+  .jhg-text-grid-wrap .jhg-text-grid-cell .jhg-text-grid-text::before {
+    content: "";
+    display: block;
+    width: 19px;
+    height: 19px;
+    background: var(--jhg-red);
+    position: absolute;
+    z-index: 1;
+    border: 4px solid #f4f5f8;
+    left: -10px;
+  }
+  .jhg-text-grid-wrap .jhg-text-grid-cell .jhg-text-grid-text::before {
+    top: -10px;
+  }
+  .jhg-text-grid-wrap .jhg-text-grid-cell .jhg-text-grid-text::after {
+    bottom: -10px;
+  }
+  .jhg-text-grid-wrap .jhg-text-grid-cell {
+    border-right: 1px solid #a3a3a3;
+  }
+  .jhg-text-grid-wrap .jhg-text-grid-cell:first-child {
     border-right: none;
+  }
+  .jhg-text-grid-wrap .jhg-text-grid-cell:first-child::before {
+    display: none;
   }
   .jhg-text-grid-wrap .jhg-text-grid-cell:nth-last-child(-n + 2),
   .jhg-text-grid-wrap .jhg-text-grid-cell:nth-child(2n) {
