@@ -1,14 +1,15 @@
 
 :root {
-  --jhg-navy: #16215a;
-  --jhg-navy-deep: #0d1640;
+  /* Canonical colours ratified to Figma (see design-system-figma-vs-css.md) */
+  --jhg-navy: #0a295d;
+  --jhg-navy-deep: #1d2d5b;
   --jhg-red: #ed1c24;
   --jhg-magenta: #b81d7a;
   --jhg-purple: #3a1d74;
   --jhg-gold: #f5a623;
   --jhg-ink: #1a1a1a;
-  --jhg-muted: #6b7280;
-  --jhg-stone: #78716c;
+  --jhg-muted: #646464;
+  --jhg-stone: #646464;
   --jhg-gray-300: #d1d5db;
   --jhg-gray-200: #e5e7eb;
   --jhg-gray-ui: #e8e9eb;
@@ -21,7 +22,7 @@
   --jhg-black: #000000;
   --jhg-light: #f4f5f8;
   --jhg-white: #ffffff;
-  --jhg-navy-deep-rgb: 13, 22, 64;
+  --jhg-navy-deep-rgb: 29, 45, 91;
   --jhg-white-rgb: 255, 255, 255;
   --jhg-red-rgb: 237, 28, 36;
   --jhg-magenta-rgb: 184, 29, 122;
@@ -253,6 +254,18 @@ body {
   font-size: var(--jhg-fs-base);
   overflow-x: clip;
   max-width: 100%;
+}
+
+/* Figma content column = 1200px (Bootstrap xl default is 1140px) */
+@media (min-width: 1200px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl,
+  .container-xxl {
+    max-width: 75rem;
+  }
 }
 
 .jhg-section {
