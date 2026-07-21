@@ -34,9 +34,10 @@ function jhg_enqueue_assets()
         JHG_FONTAWESOME_VERSION
     );
 
+    $fonts_rel = '/assets/css/font.css';
     wp_enqueue_style(
         'jhg-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap',
+        get_theme_file_uri($fonts_rel),
         [],
         null
     );
@@ -45,7 +46,7 @@ function jhg_enqueue_assets()
     wp_enqueue_style(
         'jhg-base',
         get_theme_file_uri($base_rel),
-        ['bootstrap'],
+        ['bootstrap', 'jhg-fonts'],
         null
         //jhg_asset_version($base_rel)
     );

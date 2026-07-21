@@ -1,0 +1,29 @@
+/**
+ * Avant Garde (ITC Avant Garde Gothic) — self-hosted.
+ * Book ≈ Figma weight 5 (regular); Bold ≈ Figma weight 7.
+ * Weight ranges map theme 400–500 → Book, 600–900 → Bold.
+ */
+
+@font-face {
+  font-family: "Avant Garde";
+  src:
+    url("../font/AvantGardeBook.woff2") format("woff2"),
+    url("../font/AvantGardeBook.woff") format("woff"),
+    url("../font/AvantGardeBook.ttf") format("truetype"),
+    url("../font/AvantGardeBook.svg#AvantGardeBook") format("svg");
+  font-weight: 100 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avant Garde";
+  src:
+    url("../font/AvantGardeBold.woff2") format("woff2"),
+    url("../font/AvantGardeBold.woff") format("woff"),
+    url("../font/AvantGardeBold.ttf") format("truetype"),
+    url("../font/AvantGardeBold.svg#AvantGardeBold") format("svg");
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+}

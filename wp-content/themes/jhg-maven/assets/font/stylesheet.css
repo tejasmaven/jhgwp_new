@@ -1,0 +1,28 @@
+/**
+ * Avant Garde local faces (kit copy).
+ * Prefer theme enqueue of assets/css/font.css in production.
+ */
+
+@font-face {
+  font-family: "Avant Garde";
+  src:
+    url("AvantGardeBook.woff2") format("woff2"),
+    url("AvantGardeBook.woff") format("woff"),
+    url("AvantGardeBook.ttf") format("truetype"),
+    url("AvantGardeBook.svg#AvantGardeBook") format("svg");
+  font-weight: 100 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avant Garde";
+  src:
+    url("AvantGardeBold.woff2") format("woff2"),
+    url("AvantGardeBold.woff") format("woff"),
+    url("AvantGardeBold.ttf") format("truetype"),
+    url("AvantGardeBold.svg#AvantGardeBold") format("svg");
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+}
