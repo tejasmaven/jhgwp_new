@@ -41,47 +41,49 @@ if ($use_image && $has_content) {
 } elseif ($use_video && '' !== $image_url) {
 	$section_style = ' style="background-image:url(' . esc_url($image_url) . ');"';
 }
+if ($has_media) :
 ?>
-<section class="<?php echo esc_attr(implode(' ', $hero_classes)); ?>" <?php echo $section_style; ?>>
-	<?php if ($use_video) : ?>
-		<div class="jhg-hero-media" aria-hidden="true">
-			<video
-				class="jhg-hero-video"
-				autoplay
-				muted
-				loop
-				playsinline
-				preload="metadata"
-				<?php echo '' !== $image_url ? ' poster="' . esc_url($image_url) . '"' : ''; ?>>
-				<source src="<?php echo esc_url($video_url); ?>" type="<?php echo esc_attr($video_mime); ?>">
-			</video>
-		</div>
-	<?php elseif ($media_only && $use_image) : ?>
-		<img class="jhg-hero-img" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($title); ?>">
-	<?php endif; ?>
-
-	<?php if ($has_content) : ?>
-		<div class="jhg-hero-overlay"></div>
-		<div class="container jhg-hero-inner">
-			<div class="jhg-hero-content">
-				<?php if ($title) : ?>
-					<h1 class="jhg-hero-title title-display"><?php echo esc_html($title); ?></h1>
-				<?php endif; ?>
-
-				<?php if ($subtitle) : ?>
-					<p class="jhg-hero-subtitle body-lg"><?php echo esc_html($subtitle); ?></p>
-				<?php endif; ?>
-
-				<?php if ($btn_url) : ?>
-					<?php
-					jhg_render_button($btn_text, [
-						'url'     => $btn_url ?: '#',
-						'variant' => 'red',
-						'class'   => 'jhg-hero-btn body-md',
-					]);
-					?>
-				<?php endif; ?>
+	<section class="<?php echo esc_attr(implode(' ', $hero_classes)); ?>" <?php echo $section_style; ?>>
+		<?php if ($use_video) : ?>
+			<div class="jhg-hero-media" aria-hidden="true">
+				<video
+					class="jhg-hero-video"
+					autoplay
+					muted
+					loop
+					playsinline
+					preload="metadata"
+					<?php echo '' !== $image_url ? ' poster="' . esc_url($image_url) . '"' : ''; ?>>
+					<source src="<?php echo esc_url($video_url); ?>" type="<?php echo esc_attr($video_mime); ?>">
+				</video>
 			</div>
-		</div>
-	<?php endif; ?>
-</section>
+		<?php elseif ($media_only && $use_image) : ?>
+			<img class="jhg-hero-img" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($title); ?>">
+		<?php endif; ?>
+
+		<?php if ($has_content) : ?>
+			<div class="jhg-hero-overlay"></div>
+			<div class="container jhg-hero-inner">
+				<div class="jhg-hero-content">
+					<?php if ($title) : ?>
+						<h1 class="jhg-hero-title title-display"><?php echo esc_html($title); ?></h1>
+					<?php endif; ?>
+
+					<?php if ($subtitle) : ?>
+						<p class="jhg-hero-subtitle body-lg"><?php echo esc_html($subtitle); ?></p>
+					<?php endif; ?>
+
+					<?php if ($btn_url) : ?>
+						<?php
+						jhg_render_button($btn_text, [
+							'url'     => $btn_url ?: '#',
+							'variant' => 'red',
+							'class'   => 'jhg-hero-btn body-md',
+						]);
+						?>
+					<?php endif; ?>
+				</div>
+			</div>
+		<?php endif; ?>
+	</section>
+<?php endif; ?>
