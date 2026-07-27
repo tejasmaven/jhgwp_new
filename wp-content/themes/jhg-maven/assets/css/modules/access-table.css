@@ -81,8 +81,8 @@
 .jhg-access-table-head th::after {
   content: "";
   position: absolute;
-  left: 0.3125rem;
-  right: 0.3125rem;
+  left: 0;
+  right: 0;
   bottom: 0;
   border-bottom: 0.09375rem solid var(--jhg-stone);
 }
@@ -101,8 +101,8 @@
 .jhg-access-table-body > tr:not(:last-child) > td::after {
   content: "";
   position: absolute;
-  left: 0.3125rem;
-  right: 0.3125rem;
+  left: 0;
+  right: 0;
   bottom: 0;
   border-bottom: 1px solid rgba(120, 113, 108, 0.35);
 }

@@ -8,7 +8,7 @@
   margin: 0 0 2.1875rem;
   color: var(--jhg-navy-deep);
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   text-align: center;
   letter-spacing: 0.02em;
 }

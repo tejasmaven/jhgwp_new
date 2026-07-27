@@ -15,7 +15,7 @@
   text-align: center;
   color: var(--jhg-navy-deep);
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.02em;
 }
 
@@ -39,7 +39,7 @@
 .jhg-stats-metric-label {
   color: var(--jhg-muted);
   font-weight: 400;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.03em;
   max-width: 14rem;
   margin-inline: auto;
@@ -90,15 +90,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
 }
 
-.jhg-stats-band-image {
+.jhg-stats-band-image-clip {
   width: 86.9565%;
   aspect-ratio: 1 / 1;
   max-width: 25rem;
   border-radius: var(--jhg-radius-sm);
+  overflow: hidden;
+}
+
+.jhg-stats-band-image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.jhg-stats-band-frame:hover .jhg-stats-band-image,
+.jhg-stats-band-frame:focus-within .jhg-stats-band-image {
+  transform: scale(1.18);
 }
 
 .jhg-stats-band-text {
@@ -163,21 +178,39 @@
   gap: 0.875rem;
 }
 
-.jhg-stat-card-img {
-  max-width: 100%;
-  height: auto;
+.jhg-stat-card-image-clip {
+  width: 100%;
+
+  min-height: 0;
   border-radius: var(--jhg-radius-sm);
+  overflow: hidden;
+}
+
+.jhg-stat-card-img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  border-radius: 0;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.jhg-stat-card:hover .jhg-stat-card-img,
+.jhg-stat-card:focus-within .jhg-stat-card-img {
+  transform: scale(1.18);
 }
 
 .jhg-stat-card-body {
   padding: 0;
+  flex-shrink: 0;
 }
 
 .jhg-stat-card-title {
   color: var(--jhg-stone);
-  text-transform: uppercase;
+  text-transform: none;
   font-weight: 400;
 }
 
@@ -222,10 +255,14 @@
     height: auto;
   }
 
+  .jhg-stat-card-image-clip {
+    flex: 0 0 auto;
+    aspect-ratio: 330 / 290;
+  }
+
   .jhg-stat-card-img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 330 / 290;
+    height: 100%;
   }
 }
 
@@ -240,5 +277,6 @@
   }
 }
 
-
-.jhg-stats-band-feature-row{align-items:start !important;}
+.jhg-stats-band-feature-row {
+  align-items: start !important;
+}

@@ -14,7 +14,7 @@
 .jhg-legal-document-eyebrow {
   margin: 0 0 0.75rem;
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.08em;
   color: var(--jhg-red);
 }
@@ -23,7 +23,7 @@
   margin: 0;
   color: var(--jhg-navy-deep);
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.02em;
 }
 
@@ -77,7 +77,7 @@
 .jhg-legal-document-toc-heading {
   margin: 0 0 0.75rem;
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.06em;
   color: var(--jhg-navy-deep);
 }

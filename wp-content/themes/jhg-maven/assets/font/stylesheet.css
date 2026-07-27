@@ -11,8 +11,8 @@
     url("AvantGardeBook.ttf") format("truetype"),
     url("AvantGardeBook.svg#AvantGardeBook") format("svg");
   font-weight: 100 500;
-  font-style: normal;
-  font-display: swap;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -23,6 +23,6 @@
     url("AvantGardeBold.ttf") format("truetype"),
     url("AvantGardeBold.svg#AvantGardeBold") format("svg");
   font-weight: 600 900;
-  font-style: normal;
-  font-display: swap;
+    font-style: normal;
+    font-display: swap;
 }

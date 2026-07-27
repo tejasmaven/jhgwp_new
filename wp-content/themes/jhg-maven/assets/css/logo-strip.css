@@ -14,10 +14,10 @@
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: jhg-logo-marquee 18s linear infinite;
+  animation: jhg-logo-marquee 40s linear infinite;
 }
 .jhg-logo-strip-marquee:hover .jhg-logo-strip-track {
-  animation-play-state: paused;
+  animation-duration: 70s;
 }
 
 .jhg-logo-strip-list {
@@ -66,7 +66,10 @@
     height: 6.5rem;
   }
   .jhg-logo-strip-track {
-    animation-duration: 16s;
+    animation-duration: 36s;
+  }
+  .jhg-logo-strip-marquee:hover .jhg-logo-strip-track {
+    animation-duration: 60s;
   }
   .jhg-logo-strip-item img {
     max-height: 1.875rem;
@@ -79,7 +82,10 @@
     height: 6rem;
   }
   .jhg-logo-strip-track {
-    animation-duration: 14s;
+    animation-duration: 32s;
+  }
+  .jhg-logo-strip-marquee:hover .jhg-logo-strip-track {
+    animation-duration: 55s;
   }
   .jhg-logo-strip-item img {
     max-height: 1.625rem;

@@ -14,7 +14,7 @@
   margin: 0 auto;
   color: var(--jhg-navy-deep);
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   text-align: center;
   letter-spacing: 0.02em;
 }

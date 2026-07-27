@@ -125,7 +125,7 @@
   color: var(--jhg-white);
   font-weight: 700;
   line-height: 1.15;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.02em;
 }
 
@@ -300,7 +300,7 @@
   font-weight: 700;
   line-height: 1.2;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.02em;
 }
 
@@ -328,7 +328,7 @@
   color: var(--jhg-navy-deep);
   font-weight: 700;
   line-height: 1.35;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.02em;
 }
 

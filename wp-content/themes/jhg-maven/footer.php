@@ -9,6 +9,46 @@ $jhg_address   = jhg_theme_option('footer_address', '');
 $jhg_phone     = jhg_theme_option('footer_phone', '');
 $jhg_email     = jhg_theme_option('footer_email', '');
 $jhg_socials   = function_exists('get_field') ? (get_field('social_links', 'option') ?: []) : [];
+
+if (! is_array($jhg_socials) || ! $jhg_socials) {
+	$jhg_socials = [
+		[
+			'icon' => 'facebook',
+			'url'  => [
+				'url'    => 'https://www.facebook.com/profile.php?id=61568003968221',
+				'target' => '_blank',
+			],
+		],
+		[
+			'icon' => 'linkedin',
+			'url'  => [
+				'url'    => 'https://www.linkedin.com/company/jhg-personnel-practitioners/',
+				'target' => '_blank',
+			],
+		],
+	];
+} else {
+	foreach ($jhg_socials as &$jhg_social_row) {
+		$icon = strtolower((string) ($jhg_social_row['icon'] ?? ''));
+		$url  = jhg_acf_link_url($jhg_social_row['url'] ?? '');
+
+		if ('' === $url && str_contains($icon, 'facebook')) {
+			$jhg_social_row['url'] = [
+				'url'    => 'https://www.facebook.com/profile.php?id=61568003968221',
+				'target' => '_blank',
+			];
+		}
+
+		if (('' === $url || 'https://www.linkedin.com/' === rtrim($url, '/')) && str_contains($icon, 'linkedin')) {
+			$jhg_social_row['url'] = [
+				'url'    => 'https://www.linkedin.com/company/jhg-personnel-practitioners/',
+				'target' => '_blank',
+			];
+		}
+	}
+	unset($jhg_social_row);
+}
+
 $jhg_copyright = jhg_theme_option('copyright', '');
 
 

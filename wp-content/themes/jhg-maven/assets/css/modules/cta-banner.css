@@ -101,7 +101,7 @@
   width: 100%;
   color: var(--jhg-white);
   font-weight: 400;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.02em;
 }
 
@@ -215,5 +215,6 @@
   }
 }
 
-
-.jhg-cta-banner-panel .align-items-center{align-items:start !important;}
+.jhg-cta-banner-panel .align-items-center {
+  align-items: start !important;
+}

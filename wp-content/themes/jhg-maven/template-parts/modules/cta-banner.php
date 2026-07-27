@@ -76,7 +76,7 @@ if ($heading) {
 							<?php
 							$body_html = (false !== strpos($body, '<')) ? $body : wpautop($body);
 							?>
-							<div class="jhg-cta-banner-body body-md"><?php echo wp_kses_post($body_html); ?></div>
+							<div class="jhg-cta-banner-body body-lg"><?php echo wp_kses_post($body_html); ?></div>
 						<?php endif; ?>
 
 						<?php if ($checklist) : ?>

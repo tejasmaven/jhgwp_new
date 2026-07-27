@@ -14,7 +14,7 @@ if (! is_array($cards) || ! $cards) {
 <section class="jhg-download-cards jhg-section">
 	<div class="container">
 		<?php if ($heading) : ?>
-			<h2 class="jhg-download-cards-heading title-xl"><?php echo esc_html($heading); ?></h2>
+			<h2 class="jhg-download-cards-heading body-lg"><?php echo esc_html($heading); ?></h2>
 		<?php endif; ?>
 
 		<div class="row g-4 jhg-download-cards-row justify-content-center">
@@ -33,7 +33,7 @@ if (! is_array($cards) || ! $cards) {
 				<div class="col-12 col-md-6 col-xl-4">
 					<article class="jhg-download-card h-100">
 						<?php if ($title) : ?>
-							<h3 class="jhg-download-card-title title-lg"><?php echo jhg_kses_line_breaks($title); ?></h3>
+							<h3 class="jhg-download-card-title body-lg"><?php echo jhg_kses_line_breaks($title); ?></h3>
 						<?php endif; ?>
 
 						<?php if ($description) : ?>

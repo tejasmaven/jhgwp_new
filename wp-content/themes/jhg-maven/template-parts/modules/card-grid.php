@@ -8,29 +8,6 @@ $heading = get_sub_field('heading');
 $sub_heading = get_sub_field('sub_heading');
 $cards   = get_sub_field('cards');
 
-if (! function_exists('jhg_card_grid_marks')) {
-	function jhg_card_grid_marks(int $cols, int $rows): array
-	{
-		if ($cols < 2 || $rows < 1) {
-			return [];
-		}
-
-		$marks = [];
-
-		for ($col = 2; $col <= $cols; $col++) {
-			$marks[] = ['col' => $col, 'row' => 1, 'place' => 'start start', 'bottom' => false];
-
-			for ($row = 2; $row <= $rows; $row++) {
-				$marks[] = ['col' => $col, 'row' => $row, 'place' => 'start start', 'bottom' => false];
-			}
-
-			$marks[] = ['col' => $col, 'row' => $rows, 'place' => 'end start', 'bottom' => true];
-		}
-
-		return $marks;
-	}
-}
-
 $count = is_array($cards) ? count($cards) : 0;
 $rows_lg = $count > 0 ? (int) ceil($count / 3) : 0;
 $rows_md = $count > 0 ? (int) ceil($count / 2) : 0;
@@ -60,7 +37,7 @@ $rows_md = $count > 0 ? (int) ceil($count / 2) : 0;
 				<h2 class="jhg-card-grid-heading title-3xl"><?php echo esc_html($heading); ?></h2>
 			<?php endif; ?>
 			<?php if ($sub_heading) : ?>
-				<h2 class="jhg-card-grid-heading title-xl"><?php echo esc_html($sub_heading); ?></h2>
+				<p class="jhg-card-grid-lead body-lg"><?php echo esc_html($sub_heading); ?></p>
 			<?php endif; ?>
 
 			<?php if ($cards) : ?>
@@ -72,6 +49,10 @@ $rows_md = $count > 0 ? (int) ceil($count / 2) : 0;
 							<div class="jhg-card-grid-col">
 								<article class="jhg-service-card">
 									<span class="jhg-service-card-accent" aria-hidden="true"></span>
+									<span class="jhg-card-grid-cross jhg-card-grid-cross-tl" aria-hidden="true"></span>
+									<span class="jhg-card-grid-cross jhg-card-grid-cross-tr" aria-hidden="true"></span>
+									<span class="jhg-card-grid-cross jhg-card-grid-cross-bl" aria-hidden="true"></span>
+									<span class="jhg-card-grid-cross jhg-card-grid-cross-br" aria-hidden="true"></span>
 
 									<?php if (! empty($card['title'])) : ?>
 										<h3 class="jhg-service-card-title title-lg"><?php echo wp_kses_post($card['title']); ?></h3>
@@ -93,22 +74,6 @@ $rows_md = $count > 0 ? (int) ceil($count / 2) : 0;
 									<?php endif; ?>
 								</article>
 							</div>
-						<?php endforeach; ?>
-					</div>
-
-					<div class="jhg-card-grid-marks jhg-card-grid-marks-lg" aria-hidden="true">
-						<?php foreach (jhg_card_grid_marks(3, $rows_lg) as $mark) : ?>
-							<span
-								class="jhg-card-grid-mark<?php echo ! empty($mark['bottom']) ? ' jhg-card-grid-mark-bottom' : ''; ?>"
-								style="grid-column: <?php echo (int) $mark['col']; ?>; grid-row: <?php echo (int) $mark['row']; ?>; place-self: <?php echo esc_attr($mark['place']); ?>;"></span>
-						<?php endforeach; ?>
-					</div>
-
-					<div class="jhg-card-grid-marks jhg-card-grid-marks-md" aria-hidden="true">
-						<?php foreach (jhg_card_grid_marks(2, $rows_md) as $mark) : ?>
-							<span
-								class="jhg-card-grid-mark<?php echo ! empty($mark['bottom']) ? ' jhg-card-grid-mark-bottom' : ''; ?>"
-								style="grid-column: <?php echo (int) $mark['col']; ?>; grid-row: <?php echo (int) $mark['row']; ?>; place-self: <?php echo esc_attr($mark['place']); ?>;"></span>
 						<?php endforeach; ?>
 					</div>
 				</div>

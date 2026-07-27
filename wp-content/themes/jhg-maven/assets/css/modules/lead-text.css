@@ -31,7 +31,7 @@
   font-size: var(--jhg-body-md-size);
   line-height: var(--jhg-body-md-lh);
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.04em;
   color: var(--jhg-navy-deep);
 }
@@ -78,7 +78,7 @@
   font-size: var(--jhg-title-lg-size);
   line-height: var(--jhg-title-lg-lh);
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.04em;
 }
 

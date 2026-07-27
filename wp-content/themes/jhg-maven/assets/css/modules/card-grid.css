@@ -37,9 +37,27 @@
   margin: 0;
   color: var(--jhg-white);
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   text-align: center;
   letter-spacing: 0.02em;
+}
+
+.jhg-card-grid-lead {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: 52rem;
+  color: var(--jhg-white);
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.4;
+}
+
+@media (min-width: 992px) {
+  .jhg-card-grid-lead {
+    white-space: nowrap;
+    font-size: var(--jhg-body-lg-size);
+  }
 }
 
 .jhg-card-grid-cells {
@@ -101,54 +119,70 @@
 
 .jhg-service-card .jhg-btn {
   margin-top: auto;
-  text-transform: none;
+  text-transform: uppercase;
 }
 
-.jhg-card-grid-marks {
-  position: absolute;
-  inset: 0;
-  display: none;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.jhg-card-grid-marks-lg,
-.jhg-card-grid-marks-md {
-  display: none;
-}
-
+/* Old percentage overlay — kept in DOM but unused */
+.jhg-card-grid-marks,
 .jhg-card-grid-mark {
-  width: 0.75rem;
-  height: 0.75rem;
-  position: relative;
+  display: none !important;
+}
+
+/* Red + at true border intersections */
+.jhg-card-grid-cross {
+  display: none;
+  position: absolute;
+  width: 0.875rem;
+  height: 0.875rem;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--jhg-red), var(--jhg-red)) center / 0.0625rem 100% no-repeat,
+    linear-gradient(var(--jhg-red), var(--jhg-red)) center / 100% 0.0625rem no-repeat;
+}
+
+.jhg-card-grid-cross-tl {
+  top: 0;
+  left: 0;
   transform: translate(-50%, -50%);
 }
 
-.jhg-card-grid-mark-bottom {
+.jhg-card-grid-cross-tr {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.jhg-card-grid-cross-bl {
+  bottom: 0;
+  left: 0;
   transform: translate(-50%, 50%);
 }
 
-.jhg-card-grid-mark::before,
-.jhg-card-grid-mark::after {
-  content: "";
-  position: absolute;
-  background: var(--jhg-red);
+.jhg-card-grid-cross-br {
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
 }
 
-.jhg-card-grid-mark::before {
-  left: 50%;
-  top: 0;
-  width: 0.0625rem;
-  height: 100%;
-  transform: translateX(-50%);
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* 2-col: left crosses on odd cols, right crosses on every col (internal + outer) */
+  .jhg-card-grid-col:nth-child(2n + 1) .jhg-card-grid-cross-tl,
+  .jhg-card-grid-col:nth-child(2n + 1) .jhg-card-grid-cross-bl,
+  .jhg-card-grid-col .jhg-card-grid-cross-tr,
+  .jhg-card-grid-col .jhg-card-grid-cross-br {
+    display: block;
+  }
 }
 
-.jhg-card-grid-mark::after {
-  left: 0;
-  top: 50%;
-  width: 100%;
-  height: 0.0625rem;
-  transform: translateY(-50%);
+@media (min-width: 992px) {
+  /* 3-col: left on first col, right on all cols (internal + outer right) */
+  .jhg-card-grid-col:nth-child(3n + 1) .jhg-card-grid-cross-tl,
+  .jhg-card-grid-col:nth-child(3n + 1) .jhg-card-grid-cross-bl,
+  .jhg-card-grid-col .jhg-card-grid-cross-tr,
+  .jhg-card-grid-col .jhg-card-grid-cross-br {
+    display: block;
+  }
 }
 @media (max-width: 767.98px) {
   .jhg-card-grid-col:not(:last-child) .jhg-service-card {
@@ -177,12 +211,6 @@
   .jhg-card-grid-col:last-child:nth-child(odd) .jhg-service-card {
     box-shadow: none;
   }
-
-  .jhg-card-grid-marks-md {
-    display: grid;
-    grid-template-columns: repeat(var(--jhg-grid-cols-md, 2), 1fr);
-    grid-template-rows: repeat(var(--jhg-grid-rows-md, 3), minmax(18rem, auto));
-  }
 }
 @media (min-width: 992px) {
   .jhg-card-grid-row {
@@ -200,12 +228,6 @@
 
   .jhg-card-grid-col:nth-child(3n):nth-last-child(-n + 3) .jhg-service-card {
     box-shadow: none;
-  }
-
-  .jhg-card-grid-marks-lg {
-    display: grid;
-    grid-template-columns: repeat(var(--jhg-grid-cols-lg, 3), 1fr);
-    grid-template-rows: repeat(var(--jhg-grid-rows-lg, 2), minmax(18rem, auto));
   }
 }
 
@@ -239,18 +261,40 @@
   }
 }
 
-.jhg-card-grid-cells{border: none;}
-.jhg-service-card{box-shadow: none !important; border-left:1px solid rgba(255,255,255,0.32); border-top:1px solid rgba(255,255,255,0.32);}
-.jhg-card-grid-col:nth-child(3n) .jhg-service-card, .jhg-card-grid-col:last-child .jhg-service-card{border-right:1px solid rgba(255,255,255,0.32);}
-.jhg-card-grid-col:nth-last-child(-n + 3) .jhg-service-card{border-left:1px solid rgba(255,255,255,0.32) !important; border-bottom:1px solid rgba(255,255,255,0.32) !important;}
-
-@media(max-width:991px){
-  .jhg-card-grid-col:nth-child(3n) .jhg-service-card, .jhg-card-grid-col:last-child .jhg-service-card{border-right: none;}
-  .jhg-card-grid-col:nth-last-child(-n + 2) .jhg-service-card,
-  .jhg-card-grid-col:nth-child(2n) .jhg-service-card{border-right: 1px solid rgba(255, 255, 255, 0.32) !important;}
-  .jhg-card-grid-col:nth-last-child(3) .jhg-service-card{border-bottom: 0 !important;}
+.jhg-card-grid-cells {
+  border: none;
+}
+.jhg-service-card {
+  box-shadow: none !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.32);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+}
+.jhg-card-grid-col:nth-child(3n) .jhg-service-card,
+.jhg-card-grid-col:last-child .jhg-service-card {
+  border-right: 1px solid rgba(255, 255, 255, 0.32);
+}
+.jhg-card-grid-col:nth-last-child(-n + 3) .jhg-service-card {
+  border-left: 1px solid rgba(255, 255, 255, 0.32) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.32) !important;
 }
 
-@media(max-width:767px){
-  .jhg-card-grid-col .jhg-service-card{border-left:1px solid rgba(255,255,255,0.32) !important; border-right:1px solid rgba(255,255,255,0.32) !important;}
+@media (max-width: 991px) {
+  .jhg-card-grid-col:nth-child(3n) .jhg-service-card,
+  .jhg-card-grid-col:last-child .jhg-service-card {
+    border-right: none;
+  }
+  .jhg-card-grid-col:nth-last-child(-n + 2) .jhg-service-card,
+  .jhg-card-grid-col:nth-child(2n) .jhg-service-card {
+    border-right: 1px solid rgba(255, 255, 255, 0.32) !important;
+  }
+  .jhg-card-grid-col:nth-last-child(3) .jhg-service-card {
+    border-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .jhg-card-grid-col .jhg-service-card {
+    border-left: 1px solid rgba(255, 255, 255, 0.32) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.32) !important;
+  }
 }

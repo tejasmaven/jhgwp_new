@@ -21,21 +21,21 @@
   margin: 0;
   color: var(--jhg-navy-deep);
   font-weight: 700;
-  line-height: 2rem;
+  line-height: 1.35;
 }
 
 .jhg-blog-links-body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2.5rem;
+  gap: 1.75rem;
   width: 100%;
 }
 
 .jhg-blog-links-row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
+  gap: 1.75rem;
   width: 100%;
 }
 

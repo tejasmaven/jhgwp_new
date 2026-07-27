@@ -888,7 +888,7 @@ function jhg_theme_linkedin_url(): string
         }
     }
 
-    return 'https://www.linkedin.com/';
+    return 'https://www.linkedin.com/company/jhg-personnel-practitioners/';
 }
 
 function jhg_copy_flexible_subfield(int $post_id, string $layout, string $subfield)

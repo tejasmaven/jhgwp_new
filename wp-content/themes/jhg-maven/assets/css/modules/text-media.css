@@ -55,7 +55,7 @@
   width: 100%;
   color: var(--jhg-navy-deep);
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.02em;
 }
 
@@ -81,7 +81,7 @@
   margin: 1.75rem 0 0.75rem;
   color: var(--jhg-navy-deep);
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.02em;
 }
 
@@ -125,6 +125,15 @@
   border-radius: 0.625rem;
   object-fit: cover;
   display: block;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.jhg-text-media-frame:hover .jhg-text-media-image,
+.jhg-text-media-band-frame:hover .jhg-text-media-image {
+  transform: translateY(-0.125rem) scale(1.01);
+  box-shadow: var(--jhg-shadow-md);
 }
 
 .jhg-text-media .jhg-checklist {
@@ -327,7 +336,7 @@
 
 .jhg-text-media-gradient .jhg-text-media-heading {
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.02em;
 }
 

@@ -8,7 +8,7 @@
   margin: 0 0 2.25rem;
   color: var(--jhg-navy-deep);
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   text-align: center;
   letter-spacing: 0.02em;
 }
@@ -45,13 +45,19 @@
   background: var(--jhg-light);
   border-right: 1px solid var(--jhg-icon-grid-line);
   border-bottom: 1px solid var(--jhg-icon-grid-line);
-  transition: background-color 0.2s ease;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 a.jhg-icon-service-card:hover,
 a.jhg-icon-service-card:focus-visible {
-  background: var(--jhg-surface-hover);
+  background: var(--jhg-white);
+  transform: translateY(-0.25rem);
+  box-shadow: var(--jhg-shadow-md);
   outline: none;
+  z-index: 1;
 }
 .jhg-icon-service-card-title {
   margin: 0;

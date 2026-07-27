@@ -8,7 +8,9 @@
   margin: 0 0 3rem;
   color: var(--jhg-navy-deep);
   font-weight: 700;
-  text-transform: uppercase;
+  font-size: var(--jhg-body-lg-size);
+  line-height: var(--jhg-body-lg-lh);
+  text-transform: none;
   text-align: center;
   letter-spacing: 0.02em;
 }
@@ -32,7 +34,9 @@
   margin: 0;
   color: var(--jhg-navy-deep);
   font-weight: 700;
-  text-transform: uppercase;
+  font-size: var(--jhg-body-lg-size);
+  line-height: var(--jhg-body-lg-lh);
+  text-transform: none;
 }
 
 .jhg-download-card-desc {

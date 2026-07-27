@@ -84,7 +84,7 @@
   width: 100%;
   color: var(--jhg-white);
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.04em;
   text-align: center;
 }

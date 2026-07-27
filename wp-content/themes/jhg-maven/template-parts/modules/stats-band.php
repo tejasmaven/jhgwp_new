@@ -72,13 +72,15 @@ $text_col  = $has_image ? 'col-12 col-lg-7' : 'col-12';
 				<?php if ($has_image) : ?>
 					<div class="col-12 col-lg-5">
 						<div class="jhg-stats-band-media mx-lg-auto">
-							<div class="jhg-stats-band-frame" aria-hidden="true">
-								<img
-									class="jhg-stats-band-image"
-									src="<?php echo esc_url($image['url']); ?>"
-									alt="<?php echo esc_attr($image['alt']); ?>"
-									loading="lazy"
-								>
+							<div class="jhg-stats-band-frame">
+								<div class="jhg-stats-band-image-clip">
+									<img
+										class="jhg-stats-band-image"
+										src="<?php echo esc_url($image['url']); ?>"
+										alt="<?php echo esc_attr($image['alt']); ?>"
+										loading="lazy"
+									>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -123,12 +125,14 @@ $text_col  = $has_image ? 'col-12 col-lg-7' : 'col-12';
 							<div class="col-12 col-md-6 col-lg-4">
 								<article class="jhg-stat-card h-100">
 									<?php if (! empty($card['image']['url'])) : ?>
-										<img
-											class="jhg-stat-card-img"
-											src="<?php echo esc_url($card['image']['url']); ?>"
-											alt="<?php echo esc_attr($card['image']['alt']); ?>"
-											loading="lazy"
-										>
+										<div class="jhg-stat-card-image-clip">
+											<img
+												class="jhg-stat-card-img"
+												src="<?php echo esc_url($card['image']['url']); ?>"
+												alt="<?php echo esc_attr($card['image']['alt']); ?>"
+												loading="lazy"
+											>
+										</div>
 									<?php endif; ?>
 									<div class="jhg-stat-card-body">
 										<?php
