@@ -395,6 +395,108 @@ function jhg_theme_option(string $name, $default = '')
     return ($value !== null && $value !== '') ? $value : $default;
 }
 
+function jhg_local_file_path(string $url): string
+{
+    $url = strtok(trim($url), '?#');
+
+    if ('' === $url) {
+        return '';
+    }
+
+    $uploads = wp_get_upload_dir();
+    $roots   = [
+        [$uploads['baseurl'] ?? '', $uploads['basedir'] ?? ''],
+        [get_stylesheet_directory_uri(), get_stylesheet_directory()],
+        [get_template_directory_uri(), get_template_directory()],
+    ];
+
+    foreach ($roots as [$base_url, $base_dir]) {
+        if ('' === $base_url || '' === $base_dir) {
+            continue;
+        }
+
+        foreach (array_unique([$base_url, set_url_scheme($base_url, 'http'), set_url_scheme($base_url, 'https')]) as $candidate) {
+            if (str_starts_with($url, $candidate)) {
+                return $base_dir . substr($url, strlen($candidate));
+            }
+        }
+    }
+
+    return '';
+}
+
+/**
+ * Inline an SVG icon with its fills swapped to currentColor so CSS can recolour it.
+ * Returns an empty string for non-SVG or unreadable sources, letting callers fall back to <img>.
+ */
+function jhg_inline_svg_icon(mixed $icon, string $class = ''): string
+{
+    static $cache = [];
+
+    $path = '';
+
+    if (is_array($icon)) {
+        $mime = (string) ($icon['mime_type'] ?? '');
+
+        if ('' !== $mime && 'image/svg+xml' !== $mime) {
+            return '';
+        }
+
+        $id = (int) ($icon['ID'] ?? $icon['id'] ?? 0);
+
+        if ($id) {
+            $path = (string) get_attached_file($id);
+        }
+
+        if ('' === $path) {
+            $path = jhg_local_file_path((string) ($icon['url'] ?? ''));
+        }
+    } elseif (is_numeric($icon)) {
+        $path = (string) get_attached_file((int) $icon);
+    } elseif (is_string($icon)) {
+        $path = jhg_local_file_path($icon);
+    }
+
+    if ('' === $path || 'svg' !== strtolower((string) pathinfo($path, PATHINFO_EXTENSION)) || ! is_readable($path)) {
+        return '';
+    }
+
+    if (! isset($cache[$path])) {
+        $markup = (string) file_get_contents($path);
+
+        $markup = preg_replace('#<\?xml[^>]*\?>#i', '', $markup);
+        $markup = preg_replace('#<!--.*?-->#s', '', $markup);
+        $markup = preg_replace('#<script\b.*?</script>#is', '', $markup);
+        $markup = preg_replace('#\son[a-z]+\s*=\s*(?:"[^"]*"|\'[^\']*\')#i', '', $markup);
+        $markup = preg_replace('#(fill|stroke)\s*=\s*"(?!none")(?:\#[0-9a-f]{3,8}|rgba?\([^")]*\)|currentColor)"#i', '$1="currentColor"', $markup);
+
+        $open = strpos($markup, '<svg');
+
+        if (false === $open) {
+            $cache[$path] = '';
+        } else {
+            $markup = substr($markup, $open);
+            $end    = strpos($markup, '>');
+            $tag    = substr($markup, 0, $end);
+
+            $tag = preg_replace('#\s(?:width|height|class)\s*=\s*(?:"[^"]*"|\'[^\']*\')#i', '', $tag);
+            $tag .= ' aria-hidden="true" focusable="false"';
+
+            $cache[$path] = $tag . substr($markup, $end);
+        }
+    }
+
+    if ('' === $cache[$path]) {
+        return '';
+    }
+
+    if ('' === $class) {
+        return $cache[$path];
+    }
+
+    return preg_replace('#<svg#', '<svg class="' . esc_attr($class) . '"', $cache[$path], 1);
+}
+
 function jhg_acf_link_url(mixed $value, string $fallback = ''): string
 {
     if (is_array($value)) {

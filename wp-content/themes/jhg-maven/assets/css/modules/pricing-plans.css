@@ -94,10 +94,10 @@
 }
 
 .jhg-pricing-plans-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   gap: 1.75rem;
   max-width: 81.25rem;
   margin-inline: auto;
@@ -106,9 +106,9 @@
 .jhg-pricing-card {
   display: flex;
   flex-direction: column;
-  flex: 0 1 24rem;
-  max-width: 24rem;
   width: 100%;
+  max-width: none;
+  min-width: 0;
   box-sizing: border-box;
   padding: 1.75rem 1.75rem 1.75rem 1.75rem;
   background: var(--jhg-white);
@@ -118,10 +118,10 @@
   text-align: left;
 }
 .jhg-pricing-card-growth {
-  padding: 2.125rem 2.5rem 2.5rem;
+  padding: 2.125rem 2rem 2.5rem;
 }
 .jhg-pricing-card-wide {
-  padding-inline: 2.5rem;
+  padding-inline: 2rem;
 }
 
 .jhg-pricing-card-inner {
@@ -239,13 +239,12 @@
   }
 
   .jhg-pricing-plans-grid {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: minmax(0, 24rem);
+    justify-content: center;
   }
 
   .jhg-pricing-card,
   .jhg-pricing-card-growth {
-    flex: 1 1 auto;
     max-width: 24rem;
   }
 

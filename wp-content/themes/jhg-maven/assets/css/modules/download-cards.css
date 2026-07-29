@@ -63,7 +63,7 @@
 
 .jhg-download-card-btn:hover,
 .jhg-download-card-btn:focus-visible {
-  background: var(--jhg-navy);
+  background: var(--jhg-navy-light);
   color: var(--jhg-white);
   outline: none;
 }

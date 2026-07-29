@@ -33,6 +33,7 @@
 }
 
 .jhg-icon-service-card {
+  position: relative;
   padding: 1.75rem;
   display: flex;
   flex-direction: column;
@@ -45,25 +46,80 @@
   background: var(--jhg-light);
   border-right: 1px solid var(--jhg-icon-grid-line);
   border-bottom: 1px solid var(--jhg-icon-grid-line);
-  transition:
-    background-color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: background-color 0.25s ease;
+}
+
+/* Soft red wash on hover (XD "Our Core Services") */
+.jhg-icon-service-card-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    40% 40% at 50% 41%,
+    rgba(var(--jhg-red-rgb), 0.085) 0%,
+    rgba(var(--jhg-red-rgb), 0) 100%
+  );
+  transition: opacity 0.3s ease;
+}
+
+.jhg-icon-service-card:hover .jhg-icon-service-card-glow,
+.jhg-icon-service-card:focus-within .jhg-icon-service-card-glow {
+  opacity: 1;
+}
+
+.jhg-icon-service-card-icon,
+.jhg-icon-service-card-title,
+.jhg-icon-service-card-desc,
+.jhg-icon-service-card-cta,
+.jhg-icon-service-card-line {
+  position: relative;
+  z-index: 1;
 }
 
 a.jhg-icon-service-card:hover,
 a.jhg-icon-service-card:focus-visible {
-  background: var(--jhg-white);
-  transform: translateY(-0.25rem);
-  box-shadow: var(--jhg-shadow-md);
   outline: none;
   z-index: 1;
 }
+
 .jhg-icon-service-card-title {
   margin: 0;
   max-width: 16rem;
   font-weight: 400;
   color: var(--jhg-navy-deep);
+  transition: color 0.25s ease;
+}
+
+/* Simple variant: title picks up the red accent on hover */
+.jhg-icon-service-card:not(.jhg-icon-service-card-detailed):hover
+  .jhg-icon-service-card-title,
+.jhg-icon-service-card:not(.jhg-icon-service-card-detailed):focus-within
+  .jhg-icon-service-card-title {
+  color: var(--jhg-red);
+}
+
+/* Inline icon inherits its colour, so the whole glyph turns red on hover */
+.jhg-icon-service-card-svg {
+  position: relative;
+  z-index: 1;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--jhg-navy-deep);
+  transition: color 0.25s ease;
+}
+
+.jhg-icon-service-card-detailed .jhg-icon-service-card-svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.jhg-icon-service-card:not(.jhg-icon-service-card-detailed):hover
+  .jhg-icon-service-card-svg,
+.jhg-icon-service-card:not(.jhg-icon-service-card-detailed):focus-within
+  .jhg-icon-service-card-svg {
+  color: var(--jhg-red);
 }
 
 .jhg-icon-service-card-line {
@@ -114,8 +170,10 @@ a.jhg-icon-service-card:focus-visible {
   background: transparent;
 }
 
-.jhg-icon-service-card-btn:hover {
-  background: var(--jhg-navy-deep);
+.jhg-icon-service-card-btn:hover,
+.jhg-icon-service-card-btn:focus-visible {
+  background: var(--jhg-red);
+  border-color: var(--jhg-red);
   color: var(--jhg-white);
 }
 .jhg-icon-service-card-icon {
@@ -150,6 +208,7 @@ a.jhg-icon-service-card:focus-visible {
   border-radius: 0.625rem;
   background: var(--jhg-white);
   box-shadow: var(--jhg-shadow-icon);
+  transition: background-color 0.25s ease;
 }
 
 .jhg-icon-service-card-detailed .jhg-icon-service-card-icon-bg {
@@ -169,32 +228,6 @@ a.jhg-icon-service-card:focus-visible {
   width: 2rem;
   height: 2rem;
 }
-.jhg-icon-card-grid-marks {
-  display: none;
-  position: absolute;
-  inset: var(--jhg-icon-grid-pad);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.jhg-icon-card-grid-mark {
-  position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
-  padding: 0.3125rem;
-  background: var(--jhg-light);
-  box-sizing: border-box;
-  transform: translate(-50%, -50%);
-}
-
-.jhg-icon-card-grid-mark::before {
-  content: "";
-  display: block;
-  width: 0.875rem;
-  height: 0.875rem;
-  background: var(--jhg-red);
-}
-
 .jhg-icon-card-grid-cells .jhg-icon-service-card {
   border-right: 0;
 }
@@ -224,10 +257,6 @@ a.jhg-icon-service-card:focus-visible {
   .jhg-icon-card-grid-cells .jhg-icon-service-card:nth-last-child(-n + 2) {
     border-bottom: 0;
   }
-
-  .jhg-icon-card-grid-marks-md {
-    display: block;
-  }
 }
 
 @media (min-width: 992px) {
@@ -250,21 +279,9 @@ a.jhg-icon-service-card:focus-visible {
   .jhg-icon-card-grid-cells .jhg-icon-service-card:nth-last-child(-n + 3) {
     border-bottom: 0;
   }
-
-  .jhg-icon-card-grid-marks-md {
-    display: none;
-  }
-
-  .jhg-icon-card-grid-marks-lg {
-    display: block;
-  }
 }
 
 @media (max-width: 767.98px) {
-  .jhg-icon-card-grid-marks {
-    display: none !important;
-  }
-
   .jhg-icon-service-card-detailed {
     min-height: 0;
     padding: 1.75rem 1.25rem 2rem;
@@ -290,57 +307,71 @@ a.jhg-icon-service-card:focus-visible {
   border-bottom: 1px solid #a3a3a3 !important;
 }
 
-.jhg-icon-card-grid-marks-lg {
+/* Red intersection marks, anchored to each card's own corners */
+.jhg-icon-card-grid-dot {
   display: none;
-}
-.jhg-icon-card-grid-cells .jhg-icon-service-card::before,
-.jhg-icon-card-grid-cells .jhg-icon-service-card::after,
-.jhg-icon-card-grid-cells
-  .jhg-icon-service-card:nth-child(3n + 1)
-  .jhg-icon-service-card-title::after,
-.jhg-icon-card-grid-cells
-  .jhg-icon-service-card:nth-child(3n + 1)
-  .jhg-icon-service-card-title::before,
-.jhg-icon-card-grid-cells
-  .jhg-icon-service-card:last-child
-  .jhg-icon-service-card-title::after {
-  content: "";
-  display: block;
+  position: absolute;
   width: 19px;
   height: 19px;
+  z-index: 3;
+  pointer-events: none;
   background: var(--jhg-red);
-  position: absolute;
-  z-index: 1;
-  border: 4px solid #f4f5f8;
-}
-.jhg-icon-card-grid-cells .jhg-icon-service-card::before {
-  right: -10px;
-  top: -10px;
-}
-.jhg-icon-card-grid-cells .jhg-icon-service-card::after {
-  right: -10px;
-  bottom: -10px;
-}
-.jhg-icon-card-grid-cells
-  .jhg-icon-service-card:nth-child(3n + 1)
-  .jhg-icon-service-card-title::after {
-  left: -10px;
-  top: -10px;
-}
-.jhg-icon-card-grid-cells
-  .jhg-icon-service-card:last-child
-  .jhg-icon-service-card-title::after {
-  right: -10px;
-  bottom: -10px;
-}
-.jhg-icon-card-grid-cells
-  .jhg-icon-service-card:nth-child(3n + 1)
-  .jhg-icon-service-card-title::before {
-  left: -10px;
-  bottom: -10px;
+  border: 4px solid var(--jhg-light);
+  box-sizing: border-box;
 }
 
-/* .jhg-icon-card-grid-cells .jhg-icon-service-card:nth-child(3n + 1)::before{display: none;} */
+.jhg-icon-card-grid-dot-tl {
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.jhg-icon-card-grid-dot-tr {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.jhg-icon-card-grid-dot-bl {
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
+}
+
+.jhg-icon-card-grid-dot-br {
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+
+/* 1-col: every card owns all four corners */
+.jhg-icon-card-grid-cells .jhg-icon-card-grid-dot {
+  display: block;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* 2-col: left marks only on the first column, right marks on every card */
+  .jhg-icon-card-grid-cells
+    .jhg-icon-service-card:not(:nth-child(2n + 1))
+    .jhg-icon-card-grid-dot-tl,
+  .jhg-icon-card-grid-cells
+    .jhg-icon-service-card:not(:nth-child(2n + 1))
+    .jhg-icon-card-grid-dot-bl {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  /* 3-col: left marks only on the first column, right marks on every card */
+  .jhg-icon-card-grid-cells
+    .jhg-icon-service-card:not(:nth-child(3n + 1))
+    .jhg-icon-card-grid-dot-tl,
+  .jhg-icon-card-grid-cells
+    .jhg-icon-service-card:not(:nth-child(3n + 1))
+    .jhg-icon-card-grid-dot-bl {
+    display: none;
+  }
+}
 
 @media (max-width: 991px) {
   .jhg-icon-card-grid-cells .jhg-icon-service-card:nth-child(3n),
