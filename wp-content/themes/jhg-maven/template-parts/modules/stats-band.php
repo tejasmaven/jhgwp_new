@@ -13,7 +13,7 @@ $btn_url    = get_sub_field('button_url');
 $cards      = get_sub_field('cards');
 
 if ('metrics' === $band_style) :
-	?>
+?>
 	<section class="jhg-stats-band jhg-stats-band-metrics jhg-section">
 		<div class="container">
 			<?php if ($heading) : ?>
@@ -38,7 +38,7 @@ if ('metrics' === $band_style) :
 			<?php endif; ?>
 		</div>
 	</section>
-	<?php
+<?php
 	return;
 endif;
 
@@ -56,8 +56,7 @@ $text_col  = $has_image ? 'col-12 col-lg-7' : 'col-12';
 				loading="lazy"
 				decoding="async"
 				width="114"
-				height="28"
-			/>
+				height="28" />
 			<img
 				class="jhg-stats-band-corner jhg-stats-band-corner-bottom"
 				src="<?php echo esc_url(get_theme_file_uri('/assets/images/card-bottom.svg')); ?>"
@@ -66,8 +65,7 @@ $text_col  = $has_image ? 'col-12 col-lg-7' : 'col-12';
 				loading="lazy"
 				decoding="async"
 				width="114"
-				height="28"
-			/>
+				height="28" />
 			<div class="row align-items-center jhg-stats-band-feature-row">
 				<?php if ($has_image) : ?>
 					<div class="col-12 col-lg-5">
@@ -78,8 +76,7 @@ $text_col  = $has_image ? 'col-12 col-lg-7' : 'col-12';
 										class="jhg-stats-band-image"
 										src="<?php echo esc_url($image['url']); ?>"
 										alt="<?php echo esc_attr($image['alt']); ?>"
-										loading="lazy"
-									>
+										loading="lazy">
 								</div>
 							</div>
 						</div>
@@ -130,16 +127,16 @@ $text_col  = $has_image ? 'col-12 col-lg-7' : 'col-12';
 												class="jhg-stat-card-img"
 												src="<?php echo esc_url($card['image']['url']); ?>"
 												alt="<?php echo esc_attr($card['image']['alt']); ?>"
-												loading="lazy"
-											>
+												loading="lazy">
 										</div>
 									<?php endif; ?>
 									<div class="jhg-stat-card-body">
 										<?php
-										$title = trim(($card['value'] ? $card['value'] . ' ' : '') . ($card['label'] ?? ''));
+										$card_value = isset($card['value']) ? $card['value'] . ' ' : '';
+										$title = $card_value . trim(($card['label']));
 										?>
 										<?php if ($title) : ?>
-											<div class="jhg-stat-card-title body-md"><?php echo esc_html($title); ?></div>
+											<div class="jhg-stat-card-title body-md"><?php echo $title; ?></div>
 										<?php endif; ?>
 									</div>
 								</article>

@@ -55,7 +55,7 @@ $rows_md = $count > 0 ? (int) ceil($count / 2) : 0;
 									<span class="jhg-card-grid-cross jhg-card-grid-cross-br" aria-hidden="true"></span>
 
 									<?php if (! empty($card['title'])) : ?>
-										<h3 class="jhg-service-card-title title-lg"><?php echo wp_kses_post($card['title']); ?></h3>
+										<h3 class="jhg-service-card-title title-lg"><?php echo ucwords(strtolower(wp_kses_post($card['title']))); ?></h3>
 									<?php endif; ?>
 
 									<?php if (! empty($card['description'])) : ?>
