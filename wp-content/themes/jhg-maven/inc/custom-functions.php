@@ -497,6 +497,48 @@ function jhg_inline_svg_icon(mixed $icon, string $class = ''): string
     return preg_replace('#<svg#', '<svg class="' . esc_attr($class) . '"', $cache[$path], 1);
 }
 
+/**
+ * Render the scrolling logo track.
+ *
+ * The track is animated by translating it left by exactly one copy, so it needs enough
+ * copies to keep the strip covered for the whole cycle. Images are loaded eagerly because
+ * the off-screen copies never intersect the viewport and would otherwise stay blank until
+ * the marquee had already scrolled them into place.
+ *
+ * @param array<int, array{url?: string, alt?: string}> $logos
+ */
+function jhg_render_logo_marquee(array $logos, int $copies = 3): void
+{
+    $logos = array_values(array_filter(
+        $logos,
+        static fn($logo): bool => is_array($logo) && ! empty($logo['url'])
+    ));
+
+    if (! $logos) {
+        return;
+    }
+
+    $copies = max(2, $copies);
+    ?>
+	<div class="jhg-logo-strip-track" style="--jhg-logo-copies: <?php echo (int) $copies; ?>;">
+		<?php for ($copy = 0; $copy < $copies; $copy++) : ?>
+			<ul class="jhg-logo-strip-list"<?php echo $copy > 0 ? ' aria-hidden="true"' : ''; ?>>
+				<?php foreach ($logos as $logo) : ?>
+					<li class="jhg-logo-strip-item">
+						<img
+							src="<?php echo esc_url($logo['url']); ?>"
+							alt="<?php echo 0 === $copy ? esc_attr((string) ($logo['alt'] ?? '')) : ''; ?>"
+							loading="eager"
+							decoding="async"
+						>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endfor; ?>
+	</div>
+	<?php
+}
+
 function jhg_acf_link_url(mixed $value, string $fallback = ''): string
 {
     if (is_array($value)) {

@@ -155,9 +155,53 @@
     window.addEventListener("load", alignCardDropdownPanels);
   }
 
+  // Slowing the marquee by swapping animation-duration remaps the animation's progress and
+  // makes the track jump. Changing the playback rate keeps the current position instead.
+  function initLogoMarquee() {
+    var SLOW_RATE = 0.57;
+
+    document
+      .querySelectorAll(".jhg-logo-strip-marquee")
+      .forEach(function (marquee) {
+        var track = marquee.querySelector(".jhg-logo-strip-track");
+
+        if (!track || typeof track.getAnimations !== "function") {
+          return;
+        }
+
+        function setRate(rate) {
+          track.getAnimations().forEach(function (animation) {
+            if (typeof animation.updatePlaybackRate === "function") {
+              animation.updatePlaybackRate(rate);
+            } else {
+              animation.playbackRate = rate;
+            }
+          });
+        }
+
+        function slow() {
+          setRate(SLOW_RATE);
+        }
+
+        function normal() {
+          setRate(1);
+        }
+
+        marquee.addEventListener("mouseenter", slow);
+        marquee.addEventListener("mouseleave", normal);
+        marquee.addEventListener("focusin", slow);
+        marquee.addEventListener("focusout", function (event) {
+          if (!marquee.contains(event.relatedTarget)) {
+            normal();
+          }
+        });
+      });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initMobileNav();
     initDesktopNavDropdowns();
+    initLogoMarquee();
   });
 })();
 

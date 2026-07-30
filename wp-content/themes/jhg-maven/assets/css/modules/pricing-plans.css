@@ -97,7 +97,8 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-content: center;
-  align-items: stretch;
+  /* Cards keep their own content height and sit centred against each other (Figma) */
+  align-items: center;
   gap: 1.75rem;
   max-width: 81.25rem;
   margin-inline: auto;

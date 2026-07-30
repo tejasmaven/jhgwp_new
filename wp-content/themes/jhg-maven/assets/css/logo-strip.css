@@ -4,6 +4,7 @@
   max-width: 100%;
 }
 .jhg-logo-strip-marquee {
+  --jhg-logo-gap: clamp(1.25rem, 4vw, 5rem);
   width: 100%;
   overflow: hidden;
   height: 8rem;
@@ -11,24 +12,24 @@
   align-items: center;
 }
 .jhg-logo-strip-track {
+  /* Set inline by jhg_render_logo_marquee(); this keeps the keyframe valid on its own. */
+  --jhg-logo-copies: 3;
   display: flex;
   width: max-content;
   will-change: transform;
   animation: jhg-logo-marquee 40s linear infinite;
 }
-.jhg-logo-strip-marquee:hover .jhg-logo-strip-track {
-  animation-duration: 70s;
-}
 
 .jhg-logo-strip-list {
   list-style: none;
   margin: 0;
-  padding: 0 0.625rem;
+  /* Trailing gap, so spacing across the seam between copies matches spacing within a copy */
+  padding: 0 var(--jhg-logo-gap) 0 0;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-start;
-  gap: clamp(1.25rem, 4vw, 5rem);
+  gap: var(--jhg-logo-gap);
   height: 3rem;
 }
 
@@ -52,12 +53,14 @@
   opacity: 1;
 }
 
+/* One copy per cycle. Hover slow-down is applied in JS via playback rate, because
+   swapping animation-duration mid-cycle makes the track jump. */
 @keyframes jhg-logo-marquee {
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(calc(-100% / var(--jhg-logo-copies)));
   }
 }
 
@@ -67,9 +70,6 @@
   }
   .jhg-logo-strip-track {
     animation-duration: 36s;
-  }
-  .jhg-logo-strip-marquee:hover .jhg-logo-strip-track {
-    animation-duration: 60s;
   }
   .jhg-logo-strip-item img {
     max-height: 1.875rem;
@@ -83,9 +83,6 @@
   }
   .jhg-logo-strip-track {
     animation-duration: 32s;
-  }
-  .jhg-logo-strip-marquee:hover .jhg-logo-strip-track {
-    animation-duration: 55s;
   }
   .jhg-logo-strip-item img {
     max-height: 1.625rem;
